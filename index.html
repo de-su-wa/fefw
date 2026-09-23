@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:,">
+  <title>万紫千红速查工具</title>
+  <style>
+    :root{color-scheme:dark;--bg:#101417;--surface:#191e22;--raised:#242b30;--text:#f2f4f5;--muted:#aab4bb;--border:#354047;--red:#ef6b5c;--red-ink:#ff9d92;--blue:#72b1d4;--green:#63bc9d;--shadow:0 10px 34px rgba(0,0,0,.25);--radius:14px;font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif}
+    @media(prefers-color-scheme:light){:root{--bg:#14191d;--surface:#1d2328;--raised:#283038;--text:#f5f6f7;--muted:#b5bec4;--border:#3a454c;--red:#f07769;--red-ink:#ffaaa1;--blue:#7bb7d7;--green:#6ac2a3;--shadow:0 10px 34px rgba(0,0,0,.3)}}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text)}button,input,select{font:inherit}button{color:inherit;-webkit-tap-highlight-color:transparent}.shell{max-width:880px;margin:auto;padding:0 14px 60px}.tabs{position:sticky;top:0;z-index:20;display:grid;grid-template-columns:repeat(6,1fr);gap:3px;margin:0 -14px;padding:calc(env(safe-area-inset-top) + 8px) 10px 8px;background:color-mix(in srgb,var(--bg) 92%,transparent);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}.tab{min-width:0;min-height:44px;border:0;border-radius:10px;background:transparent;font-size:13px;font-weight:750}.tab[aria-selected=true]{background:color-mix(in srgb,var(--red) 14%,var(--surface));color:var(--red-ink)}main{padding-top:26px}.view{display:none}.view.active{display:block}.kicker{margin:0 0 5px;color:var(--red);font-size:13px;font-weight:700}.heading{display:flex;align-items:baseline;gap:11px;margin:0 0 16px;padding-bottom:11px;border-bottom:1px solid var(--border)}.heading b{font-family:Georgia,"Times New Roman",serif;color:var(--red);font-size:13px}.heading h1{margin:0;font-family:Georgia,"Noto Serif SC",serif;font-size:27px;line-height:1.15;letter-spacing:-.02em}.lead{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:17px}.lead h1{margin:0;font:700 31px/1.15 Georgia,"Noto Serif SC",serif;letter-spacing:-.025em}.lead p{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.6}.ring{--p:0;width:76px;height:76px;flex:0 0 auto;display:grid;place-items:center;border-radius:50%;background:conic-gradient(var(--red) calc(var(--p)*1%),var(--raised) 0)}.ring span{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--surface);font-weight:800;font-variant-numeric:tabular-nums}.panel,.card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow)}.note{padding:13px 15px;border-radius:var(--radius);background:color-mix(in srgb,var(--blue) 11%,var(--surface));font-size:13px;line-height:1.75}.note.warn{background:color-mix(in srgb,var(--red) 11%,var(--surface))}.check-row{position:relative;display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:center;min-height:69px;padding:12px 14px;border-bottom:1px solid var(--border);cursor:pointer}.check-row:last-child{border-bottom:0}.check-row input{position:static;opacity:1;pointer-events:auto;width:24px;height:24px;margin:0;accent-color:var(--red);cursor:pointer}.box{display:none}.check-row input:checked~.check-copy{text-decoration:line-through;color:var(--muted)}.check-copy strong{display:block;font-size:14px}.check-copy small{display:block;margin-top:2px;color:var(--muted);font-size:12px;line-height:1.5}.tag,.pill{display:inline-block;border-radius:999px;background:var(--raised);padding:3px 8px;font-size:10px;font-weight:750;color:var(--muted)}.reset{width:100%;margin-top:10px;padding:12px;border:0;background:transparent;color:var(--muted);font-size:13px;font-weight:700}.rules{margin-top:30px}.rule{display:grid;grid-template-columns:30px 1fr;gap:12px;padding:14px 2px;border-bottom:1px solid var(--border)}.rule:last-child{border-bottom:0}.rule>b{font:700 17px Georgia,serif;color:var(--muted)}.rule h3{margin:0;font-size:14px}.rule p{margin:4px 0 0;color:var(--muted);font-size:13px;line-height:1.65}.controls{display:grid;gap:10px;margin-top:14px}.search,select{width:100%;min-height:44px;border:1px solid var(--border);border-radius:11px;background:var(--surface);padding:0 12px;color:var(--text);outline:0}.search:focus,select:focus{border-color:var(--blue)}.group-label{display:block;margin:0 4px 6px;color:var(--muted);font-size:11px}.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(48px,1fr));gap:5px}.chip{min-height:38px;border:1px solid var(--border);border-radius:9px;background:var(--surface);font-size:11px;font-weight:750}.chip.on{border-color:var(--red);background:color-mix(in srgb,var(--red) 13%,var(--surface));color:var(--red-ink)}.chip.blue.on{border-color:var(--blue);background:color-mix(in srgb,var(--blue) 13%,var(--surface));color:var(--blue)}.mount-selects{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px}.mount-selects label{font-size:11px;font-weight:700;color:var(--muted)}.mount-selects span{display:block;margin-bottom:4px}.mount-selects select{min-height:38px;background:var(--raised);font-size:12px;font-weight:650}.micro{margin:7px 3px 0;color:var(--muted);font-size:10px;line-height:1.5}.resultbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 4px 8px;color:var(--muted);font-size:11px}.cards{display:grid;gap:8px}.card{padding:12px}.cardhead{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.names{min-width:0}.names strong{display:block;font-size:14px;line-height:1.35}.names small{display:block;margin-top:2px;color:var(--muted);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.badges{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px}.badge{border-radius:999px;background:var(--raised);padding:4px 7px;color:var(--muted);font-size:10px;font-weight:750;white-space:nowrap}.badge.accent{background:color-mix(in srgb,var(--red) 13%,var(--surface));color:var(--red-ink)}.badge.blue{background:color-mix(in srgb,var(--blue) 13%,var(--surface));color:var(--blue)}.rank{margin-right:5px;color:var(--red);font-variant-numeric:tabular-nums}.stats{display:grid;grid-template-columns:repeat(9,1fr);gap:3px;margin-top:10px}.stat{padding:5px 0;text-align:center;border-radius:7px;background:var(--raised)}.stat.on{background:color-mix(in srgb,var(--red) 14%,var(--surface))}.stat dt{color:var(--muted);font-size:8px;font-weight:750}.stat dd{margin:2px 0 0;font-size:10px;font-weight:800;font-variant-numeric:tabular-nums}.routes{grid-template-columns:repeat(4,1fr)}.para{padding:14px}.para+.para{margin-top:9px}.para h2{margin:0;font-size:15px}.para .en{margin:3px 0 0;color:var(--muted);font-size:11px}.window{color:var(--red-ink);font-weight:800;font-size:12px}.details{display:grid;gap:7px;margin:11px 0 0;padding-top:10px;border-top:1px solid var(--border);font-size:12px;line-height:1.55}.details dt{display:inline;font-weight:750}.details dd{display:inline;margin:0;color:var(--muted)}.para-note{margin:9px 0 0;padding:8px 10px;border-radius:8px;background:var(--raised);color:var(--muted);font-size:11px;line-height:1.55}.mount-table{width:100%;border-collapse:collapse;table-layout:fixed}.mount-table th,.mount-table td{padding:9px 7px;border-top:1px solid var(--border);text-align:left;vertical-align:top;font-size:10px;line-height:1.5;overflow-wrap:anywhere}.mount-table thead th{border:0;background:var(--raised);color:var(--muted)}.mount-table tbody th{font-size:11px}.mount-table small{display:block;color:var(--muted);font-size:9px}.source{display:flex;align-items:center;gap:12px;min-height:72px;padding:12px 14px;border-bottom:1px solid var(--border);color:inherit;text-decoration:none}.source:last-child{border:0}.source strong{display:block;font-size:13px}.source small{display:block;margin-top:3px;color:var(--muted);font-size:11px;line-height:1.5}.source i{margin-left:auto;color:var(--blue);font-style:normal;font-size:18px}.foot{margin:14px 2px 0;color:var(--muted);font-size:11px;line-height:1.65}@media(min-width:640px){.shell{padding-inline:24px}.tabs{margin-inline:-24px;padding-inline:20px}.cards{grid-template-columns:1fr 1fr}.details{grid-template-columns:1fr 1fr}.mount-table th,.mount-table td{font-size:12px;padding:10px}.mount-table tbody th{font-size:12px}}@media(prefers-reduced-motion:no-preference){.view.active{animation:show .16s ease-out}@keyframes show{from{opacity:.3;transform:translateY(3px)}}}
+  </style>
+</head>
+<body>
+<div class="shell">
+  <nav class="tabs" role="tablist" aria-label="速查分类">
+    <button class="tab" role="tab" aria-selected="true" data-view="weekly">本周</button><button class="tab" role="tab" aria-selected="false" data-view="paralogues">外传</button><button class="tab" role="tab" aria-selected="false" data-view="characters">角色</button><button class="tab" role="tab" aria-selected="false" data-view="classes">职业</button><button class="tab" role="tab" aria-selected="false" data-view="mounts">坐骑</button><button class="tab" role="tab" aria-selected="false" data-view="sources">资料</button>
+  </nav>
+  <main>
+    <section class="view active" id="weekly" role="tabpanel">
+      <div class="lead"><div><p class="kicker">DAGSION · 每周一次</p><h1>本周先做完</h1><p>多数项目不消耗 Turn，回城顺手清掉。</p></div><div class="ring" id="weekly-ring"><span id="weekly-count">0/7</span></div></div>
+      <div class="panel" id="checklist"></div><button class="reset" id="reset-week">重置本周</button>
+      <div class="rules"><div class="heading"><b>01</b><h1>时间怎么走</h1></div><div class="note"><strong>只看 Turns。</strong> 屏幕上的钟表不是实时倒计时；只有明确标注消耗 Turn 的行动才会推进时间。</div><div class="rule"><b>A</b><div><h3>卡在 5:59 / 11:59 很正常</h3><p>没执行耗时行动，游戏时间会停在时段边界，不会偷偷浪费回合。</p></div></div><div class="rule"><b>B</b><div><h3>睡觉会耗 Turn</h3><p>免费周常可能花钱，但不一定花回合；操作前看界面是否标注 Turn。</p></div></div><div class="rule"><b>C</b><div><h3>截止日前看绿色对勾</h3><p>主线地点旁有绿色对勾，就不必在 Free Time 结束前特意赶回去。</p></div></div></div>
+    </section>
+    <section class="view" id="paralogues" role="tabpanel"><p class="kicker">Part I · 限时内容</p><div class="heading"><b>02</b><h1>外传参考</h1></div><div class="note warn"><strong>先接外传，再安排自由行动。</strong> 9 个外传无法在单一路线全部完成；日期按游戏内日历计算。这里只写接取窗口、地点与奖励，不含剧情解法。</div><div class="controls"><div><span class="group-label">当前路线</span><div class="chips routes" id="route-chips"></div></div></div><div class="resultbar"><span id="route-label"></span><span id="para-count"></span></div><div id="para-list"></div><p class="foot">窗口资料以 RPG Site 与 Game8 的路线表交叉整理；“期限”是最晚完成日。接近截止日时以游戏内任务页为准。</p></section>
+    <section class="view" id="characters" role="tabpanel"><p class="kicker">Character Base Growth Rates</p><div class="heading"><b>03</b><h1>角色基础成长率</h1></div><div class="note"><strong>角色基础成长率是每次升级提高属性的概率。</strong> 实际成长率还要加上当前职业与坐骑加成；数值均为百分比。中文名在上、英文名在下。</div><div class="controls"><input id="char-search" class="search" type="search" placeholder="搜索中文或英文角色名"><div><span class="group-label">选择一项或多项属性，按所选合计排序</span><div class="chips" id="char-stat-chips"></div></div></div><div class="resultbar"><span id="char-order">选择属性后显示合计与排名</span><span id="char-count"></span></div><div class="cards" id="char-list"></div><p class="foot">缩写：体 HP · 力 Str · 魔 Mag · 速 Spd · 技 Dex · 防 Def · 抗 Res · 幸 Lck · 魅 Cha。所选合计与排名仅用于比较成长率，不代表角色强度；并列数值使用相同名次。</p></section>
+    <section class="view" id="classes" role="tabpanel"><p class="kicker">Class Growth Rates</p><div class="heading"><b>04</b><h1>职业成长率</h1></div><div class="note"><strong>职业成长会加到角色基础成长上。</strong> 数值均为百分比；负数会拉低对应属性成长。骑乘职业会标注坐骑类型；戰象兵单列为战象。官方繁中名优先，英文原名完整保留。</div><div class="controls"><input id="class-search" class="search" type="search" placeholder="搜索中文或英文职业名"><div><span class="group-label">职业等级 · 可多选</span><div class="chips" id="tier-chips"></div></div><div class="panel mount-selects" id="mount-selects"></div><p class="micro">加成只用于同类骑乘职业；战车兵（Charioteer）的马成长按两次计算。</p><div><span class="group-label">坐骑类型 · 可多选</span><div class="chips" id="mount-type-chips"></div></div><div><span class="group-label">排序</span><div class="chips" id="class-sort-chips"></div></div></div><div class="resultbar"><span id="class-order"></span><span id="class-count"></span></div><div class="cards" id="class-list"></div><p class="foot">缩写：体 HP · 力 Str · 魔 Mag · 速 Spd · 技 Dex · 防 Def · 抗 Res · 幸 Lck · 魅 Cha。</p></section>
+    <section class="view" id="mounts" role="tabpanel"><p class="kicker">满羁绊 · 骑乘时生效</p><div class="heading"><b>05</b><h1>坐骑成长与食物</h1></div><div class="note"><strong>成长数字是百分比。</strong> 体=HP、力=Str、魔=Mag、速=Spd、技=Dex、防=Def、抗=Res、幸=Lck。稀有个体是否出现仍看概率，食材主要用于保证对应动物出现。</div><div class="controls"><input id="mount-search" class="search" type="search" placeholder="搜索坐骑、属性或口味"></div><div class="resultbar"><span>全数据表</span><span id="mount-count"></span></div><div class="panel"><table class="mount-table"><colgroup><col style="width:30%"><col style="width:42%"><col style="width:14%"><col style="width:14%"></colgroup><thead><tr><th>坐骑</th><th>成长加成</th><th>食材</th><th>味道</th></tr></thead><tbody id="mount-body"></tbody></table></div><p class="foot">“—”表示现有资料没有对应食物记录；“未知”表示成长数据尚未确认。</p></section>
+    <section class="view" id="sources" role="tabpanel"><p class="kicker">需要深挖时</p><div class="heading"><b>06</b><h1>攻略资料</h1></div><div class="panel" id="source-list"></div><div class="note warn" style="margin-top:16px"><strong>先看标签再点：</strong>机制指南通常安全；完整招募表与流程攻略可能直接出现角色或章节信息。</div><div class="rules"><div class="heading"><b>07</b><h1>路线节奏</h1></div><div class="panel" style="padding:0 14px"><div class="rule"><b>I</b><div><h3>一条 Part I 打完再开下一条</h3><p>完整打完后，世界地图探索与通用支线完成会带到下一条 Part I；中途切换享受不到这部分继承。</p></div></div><div class="rule"><b>II</b><div><h3>外传看日历窗口</h3><p>外传只在 Part I 出现，共 9 个，并有路线与日期限制。优先处理，避免错过本轮窗口。</p></div></div><div class="rule"><b>III</b><div><h3>角色等级与装备不跨 Part I 路线</h3><p>共通的是地图、通用支线与全档进度；不要把角色养成与物品也当作会自动继承。</p></div></div></div></div></section>
+  </main>
+</div>
+<script>
+(function(){
+'use strict';
+const S=[['hp','体'],['str','力'],['mag','魔'],['spd','速'],['dex','技'],['def','防'],['res','抗'],['lck','幸'],['cha','魅']];
+const checklist=[['calendar','先看日历','竞技场观赛、菜品、演出、生日都在这里'],['arena','竞技场训练','提升技能 EXP，转职考试最实用'],['shrine','神殿服务','提升 Bless Level，解锁祝福'],['meal','客栈用餐','提升支援最快；也能观察角色喜好'],['gifts','送礼','给准备招募的角色；拿不准时先存档'],['raven','喂 Pale Raven','提升全队与 Eshmel 的支援'],['stable','马厩喂马','仅 Cai 路线可用','Cai']];
+const checked=new Set();
+function renderChecklist(){let el=document.getElementById('checklist');el.innerHTML=checklist.map(x=>`<label class="check-row" data-key="${x[0]}"><input id="weekly-${x[0]}" data-key="${x[0]}" type="checkbox" ${checked.has(x[0])?'checked':''}><span class="box"></span><span class="check-copy"><strong>${x[1]} ${x[3]?`<span class="tag">${x[3]}</span>`:''}</strong><small>${x[2]}</small></span></label>`).join('');let n=checked.size;document.getElementById('weekly-count').textContent=n+'/7';document.getElementById('weekly-ring').style.setProperty('--p',Math.round(n/7*100));}
+document.getElementById('checklist').addEventListener('change',e=>{if(e.target.matches('input[data-key]')){e.target.checked?checked.add(e.target.dataset.key):checked.delete(e.target.dataset.key);renderChecklist();}});document.getElementById('reset-week').onclick=()=>{checked.clear();renderChecklist()};renderChecklist();
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',String(x===t)));document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===t.dataset.view));scrollTo({top:0,behavior:'smooth'});});
+const paras=[
+['Leda','Diversionary Tactics','Silver Shield · 20,000G · 150R','Temple Row · 找 Leda',{Dietrich:'9/2–9/8',Theodora:'9/2–9/8'},'需在 9/8 前接取；战斗固定于 9/8 发生。'],
+['Theodora','Missing Brave-Warrior Statue','Pilum · 20,000G · 150R','Temple Row · 找 Bonaventure',{Dietrich:'9/3–9/12 · 期限 9/15'}],
+['Bertrand',"Friendly Match with Brigid's King",'Extra Large Bullion · 20,000G · 150R','Arena Square · 找 Gabriel',{Cai:'9/17–9/25',Dietrich:'仅 9/17',Theodora:'9/17–9/25'},'Dietrich 路线只有一天，优先接取。'],
+['Talimun','Secret of the Vanished Carriage','Cleansing Blade · 20,000G · 150R','Port 附近 · 找 Talimun',{Cai:'9/17–9/22 或 10/1–10/10 · 期限 10/12',Dietrich:'9/17–9/19 或 10/1–10/10 · 期限 10/12',Theodora:'9/17–9/22 或 10/1–10/10 · 期限 10/12'},'攻略来源对 Dietrich 首段窗口有 9/19 与 9/22 两种记录，按较早的 9/19 处理更稳妥。'],
+['Anna','Golden Secret','Orichalcum · 20,000G · 150R','Dagsion Summit · 找 Anna',{Cai:'9/24–10/5',Dietrich:'9/29–10/5',Theodora:'9/24–10/5'}],
+['Anatolia','Queen of the Erased','Electron Agitator · 20,000G · 150R','City Streets · 找 Anatolia',{Dietrich:'10/5–10/14 · 期限 10/17',Leda:'10/5–10/14 · 期限 10/17'}],
+['Cai','Great Escape','Gem Box · 20,000G · 150R','City Streets · 找 Cai',{Dietrich:'10/16–10/22',Theodora:'10/16–10/22',Leda:'10/16–10/22'},'需在 10/22 前接取；战斗固定于 10/22 发生。'],
+['Dietrich','Sealed-Off Past','Salamander ×2 · 20,000G · 150R','Arena 附近 · 找 Fabio',{Theodora:'10/16–10/24 · 实际期限 10/24',Leda:'10/16–10/22 · 期限 11/1'},'Theodora 路线任务页虽显示 11/1，但章节会在 10/24 结束。'],
+['Orchel',"Orchel's Regret",'Healing Staff · 20,000G · 150R','Lower Temple Row · 找 Orchel',{Cai:'10/18–10/20 · 期限 10/21',Dietrich:'10/18–10/25 · 期限 10/27',Theodora:'10/18–10/24 · 实际期限 10/24',Leda:'10/18–10/25 · 期限 10/27'},'Theodora 路线受章节结束日限制，实际要在 10/24 前完成。']];
+let route='Cai';function renderParas(){document.getElementById('route-chips').innerHTML=['Cai','Dietrich','Theodora','Leda'].map(x=>`<button class="chip ${x===route?'on':''}" data-route="${x}">${x}</button>`).join('');let a=paras.filter(x=>x[4][route]);document.getElementById('route-label').textContent=route+' 路线';document.getElementById('para-count').textContent='可完成 '+a.length+' / 9';document.getElementById('para-list').innerHTML=a.map((x,i)=>`<article class="card para"><div class="cardhead"><div><h2>${i+1}. ${x[0]} 外传</h2><p class="en">${x[1]}</p></div><span class="window">${x[4][route]}</span></div><dl class="details"><div><dt>接取：</dt><dd>${x[3]}</dd></div><div><dt>奖励：</dt><dd>${x[2]}</dd></div></dl>${x[5]?`<p class="para-note">${x[5]}</p>`:''}</article>`).join('');}
+document.getElementById('route-chips').onclick=e=>{let b=e.target.closest('[data-route]');if(b){route=b.dataset.route;renderParas()}};renderParas();
+function parseRows(text,names){return text.trim().split('\n').map(line=>{let p=line.split('|'),o={};names.forEach((n,i)=>o[n]=i<2?p[i]:+p[i]);return o})}
+const chars=parseRows(`
+伊修玛尔|Eshmel|50|45|45|45|45|35|35|40|50
+红花|Hong Hua|40|30|45|45|45|30|45|30|40
+特洛伊|Troy|40|45|45|50|40|30|30|30|30
+凯伊|Cai|45|45|40|45|45|35|35|40|40
+迪托利希|Dietrich|50|45|30|50|60|40|30|50|60
+赛奥朵拉|Theodora|70|50|30|40|40|40|30|30|50
+蕾达|Leda|40|35|35|65|50|30|35|25|55
+蒂亚拉|Tialla|30|25|45|35|40|20|40|50|45
+彼得|Peter|40|35|20|45|60|30|25|35|30
+乌尔坦德|Ultand|45|40|40|35|40|35|45|55|50
+法比奥|Fabio|40|25|50|35|40|30|45|35|30
+埃斯梅拉达|Esmeralda|55|55|20|35|35|45|25|35|30
+米凯伊拉|Mikaela|50|45|30|40|35|40|25|30|40
+博纳旺蒂尔|Bonaventure|35|35|45|40|50|30|40|35|40
+托比亚斯|Tobias|55|60|15|25|30|45|20|40|35
+莉莲|Lilian|35|35|30|40|55|30|35|50|25
+莱桑德|Lysander|45|40|25|50|35|40|25|30|30
+布卡尔|Buccar|50|50|20|25|40|45|20|30|35
+西罗科|Sirocco|40|40|40|45|50|35|35|50|45
+奥林匹亚|Olympia|35|35|50|35|35|30|40|40|40
+穆|Mu|30|30|5|30|30|20|10|10|20
+盖茨|Gaitz|50|50|20|40|45|45|25|40|45
+但丁|Dante|30|30|45|40|40|20|40|45|30
+厄休拉|Ursula|40|35|35|50|50|35|30|40|45
+西蒙|Simon|50|50|20|35|40|40|25|50|35
+迭戈|Diego|45|40|20|45|60|35|20|35|30
+妮娜|Ninae|45|45|35|35|45|35|45|50|40
+沙兰|Sha Lan|35|30|45|35|50|30|45|35|40
+哪吒|Nezha|45|55|25|45|50|35|25|30|25
+古扎岚|Guzran|45|45|20|50|45|35|20|45|30
+伊欧|Io|45|40|25|35|45|40|25|35|35
+卡塔妮娅|Catania|35|35|35|55|50|30|35|40|45
+奈丁|Nydine|45|40|30|45|40|30|25|35|35
+本迪茨|Benditz|50|35|20|35|50|35|25|30|35
+亚历桑德拉|Alexandra|30|35|35|55|45|30|40|50|50
+杨界|Yang Jie|50|35|40|35|35|30|40|40|25
+诺库图拉|Noctula|50|45|20|45|40|40|20|35|30
+索绯雅|Sofia|35|30|45|40|30|25|40|30|40
+佩佩|Peppe|30|30|25|60|45|30|30|45|30
+赛特斯|Seteth|45|45|30|40|45|40|35|30|50
+洛蕾塔|Loretta|35|35|35|55|40|30|40|30|30
+杰斯特|Jester|40|35|15|60|45|35|25|40|40
+歌利亚|Goliath|55|60|5|15|30|50|20|35|20
+露迪亚|Ludia|40|35|20|55|45|30|20|30|30
+大刀|Dadao|50|55|20|30|35|45|20|25|30
+菲安娜|Fianna|30|35|55|30|40|20|45|25|40
+哈尔温|Halvin|35|35|30|45|60|30|25|40|35
+扎尔科内|Zarcone|40|30|20|35|60|30|25|30|15
+马吉德|Majide|65|50|15|20|30|40|10|25|5
+基洛克|Kiroc|55|40|15|55|50|30|15|30|25
+贾斯敏|Jasmine|50|40|20|30|45|45|25|40|45
+努佐|Nuzzuo|50|50|15|55|45|20|15|25|35
+伊尼奥妮|Inyoni|40|50|20|35|40|40|30|40|30
+克里克|Creek|45|50|15|60|50|35|20|30|35
+内森|Nathan|55|60|15|25|60|45|15|25|30
+贝特朗|Bertrand|50|55|15|45|50|45|20|30|50
+塔利蒙|Talimun|45|40|45|40|45|35|40|60|50
+阿纳托利亚|Anatolia|40|35|50|50|45|35|40|40|50
+奥谢尔|Orchel|30|60|45|10|20|60|60|20|60
+森图里奥|Centurio|45|45|25|40|50|50|30|30|30
+阿斯旺|Aswan|40|35|10|40|50|30|15|30|20
+塔霍妮娅|Tahonia|65|50|5|20|40|45|35|20|40`,['zh','en','hp','str','mag','spd','dex','def','res','lck','cha']);
+let charSel=[];function total(o,keys=S.map(x=>x[0])){return keys.reduce((a,k)=>a+o[k],0)}function statGrid(o,active=[]){return `<dl class="stats">${S.map(([k,l])=>`<div class="stat ${active.includes(k)?'on':''}"><dt>${l}</dt><dd>${o[k]>0?o[k]:o[k]}</dd></div>`).join('')}</dl>`}
+function renderChars(){let q=document.getElementById('char-search').value.trim().toLowerCase(),a=chars.filter(x=>!q||(x.zh+' '+x.en).toLowerCase().includes(q));if(charSel.length)a.sort((x,y)=>total(y,charSel)-total(x,charSel)||x.en.localeCompare(y.en));let ranks=new Map(),sorted=[...chars].sort((x,y)=>total(y,charSel)-total(x,charSel)),r=0,last=null;sorted.forEach((x,i)=>{let v=total(x,charSel);if(v!==last)r=i+1;ranks.set(x.en,r);last=v});document.getElementById('char-list').innerHTML=a.map(x=>{let sel=total(x,charSel),all=total(x),mx=Math.max(...S.map(s=>x[s[0]])),strong=S.filter(s=>x[s[0]]===mx).map(s=>s[1]).join('/');return `<article class="card"><div class="cardhead"><div class="names"><strong>${charSel.length?`<span class="rank">#${ranks.get(x.en)}</span>`:''}${x.zh}</strong><small>${x.en}</small></div><div class="badges">${charSel.length?`<span class="badge accent">${charSel.map(k=>S.find(s=>s[0]===k)[1]).join('+')} ${sel}</span>`:`<span class="badge">强项 ${strong}</span>`}<span class="badge">九项 ${all}</span></div></div>${statGrid(x,charSel)}</article>`}).join('')||'<p class="foot">没有匹配的角色</p>';document.getElementById('char-count').textContent='显示 '+a.length+' / '+chars.length;document.getElementById('char-order').textContent=charSel.length?'按 '+charSel.map(k=>S.find(s=>s[0]===k)[1]).join('+')+' 合计排序':'选择属性后显示合计与排名';document.getElementById('char-stat-chips').innerHTML=`<button class="chip ${charSel.length===9?'on':''}" data-stat="all">九项</button>`+S.map(([k,l])=>`<button class="chip ${charSel.includes(k)?'on':''}" data-stat="${k}">${l}</button>`).join('')}
+document.getElementById('char-search').oninput=renderChars;document.getElementById('char-stat-chips').onclick=e=>{let b=e.target.closest('[data-stat]');if(!b)return;if(b.dataset.stat==='all')charSel=charSel.length===9?[]:S.map(x=>x[0]);else charSel=charSel.includes(b.dataset.stat)?charSel.filter(x=>x!==b.dataset.stat):charSel.concat(b.dataset.stat);renderChars()};renderChars();
+const zh={Commoner:'平民',Gladiator:'鬥士',Hunter:'獵兵',Soldier:'士兵','Ornius Rider':'飛鴕兵',Diviner:'詛咒師','Armored Knight':'重裝步兵',Priest:'牧师','Wing Soldier':'天翼兵',Pugilist:'斗拳手',Brigand:'土匪',Charioteer:'戰車兵',Archer:'弓箭手','Light Cavalry':'轻骑兵',Myrmidon:'剑士',Rogue:'恶棍',Shaman:'萨满','Armored Ornius Rider':'骑甲驼兵',Blacksmith:'锻造师',Ranger:'森林骑士',Cataphract:'铁甲骑兵',Ovate:'先知',Bishop:'主教',Shido:'侍道',Caladrius:'神驼兵',Troubadour:'游吟诗人',Dancer:'舞者',Guardian:'衛士','Elephant Rider':'戰象兵',Dragoon:'馭龍兵',Warrior:'勇士',Sniper:'狙击手','Forest Knight':'森林骑士',Dreadnought:'巨型重甲兵',Bardinger:'荣光骑士',Sentinel:'哨卫',Orichaldia:'奥利哈尔迪亚',Battlemaster:'战斗大师','Shadow Seeker':'暗影追猎者',Druid:'德鲁伊',Wiseman:'贤者','Celestial Trooper':'天界骑兵','Bow Adept':'弓术大师','Castle Knight':'城堡骑士','Bau Lord':'飞龙领主',Swordmaster:'剑圣','High Savant':'大贤者','Bow Knight':'弓骑士',Valkyrium:'女武神','Great Knight':'鐵甲騎兵','War Monk':'战斗修士','The Blade':'利刃','The Apsara':'飞天女','The Eternal':'永恒者','The Godhand':'神之手','The Calamity':'天灾','The Trident':'三叉戟','The Cavalier':'骑士','The Avatar':'化身'};
+const tiers={Base:'基础',Beginner:'初级',Specialty:'中级',Advanced:'上级',Master:'大师',Divine:'神将'};
+const cls=parseRows(`
+Commoner|Base|0|0|0|0|0|0|0|0|0
+Gladiator|Beginner|10|10|0|0|0|0|0|0|0
+Hunter|Beginner|10|0|0|10|10|0|0|0|0
+Soldier|Beginner|10|5|0|-5|5|10|0|0|0
+Ornius Rider|Beginner|10|0|0|10|5|0|5|5|0
+Diviner|Beginner|5|-5|15|0|5|-5|10|0|0
+Armored Knight|Specialty|10|10|-5|-5|5|25|-5|0|5
+Priest|Specialty|5|-5|10|5|5|-10|15|15|10
+Wing Soldier|Specialty|10|0|5|0|5|5|5|5|10
+Pugilist|Specialty|15|10|-5|10|5|10|0|0|5
+Brigand|Specialty|15|15|-5|5|0|5|0|0|5
+Charioteer|Specialty|10|5|-5|-5|15|10|0|5|10
+Archer|Specialty|10|5|0|10|10|5|0|5|5
+Light Cavalry|Specialty|10|5|-5|5|0|5|0|5|10
+Myrmidon|Specialty|10|0|0|15|10|0|0|5|5
+Rogue|Specialty|10|0|0|15|10|0|5|5|0
+Shaman|Specialty|5|-5|15|10|10|-10|10|10|0
+Armored Ornius Rider|Specialty|10|0|-5|10|5|10|0|5|5
+Blacksmith|Advanced|15|10|10|0|5|10|10|0|5
+Ranger|Advanced|10|5|0|15|15|0|10|15|0
+Cataphract|Advanced|15|15|-5|-10|0|10|-5|0|5
+Ovate|Advanced|10|-5|20|5|15|-10|15|10|0
+Bishop|Advanced|10|-5|15|0|0|-10|20|20|10
+Shido|Advanced|10|5|0|15|10|0|-5|5|5
+Caladrius|Advanced|15|0|10|5|10|10|10|5|5
+Troubadour|Advanced|10|0|15|5|0|5|15|15|10
+Dancer|Advanced|15|5|0|25|10|0|5|10|20
+Guardian|Advanced|10|10|0|0|5|10|15|5|5
+Elephant Rider|Advanced|20|10|-5|20|-10|15|-5|5|10
+Dragoon|Advanced|15|5|0|0|5|10|10|10|5
+Warrior|Advanced|20|20|-5|0|0|5|-5|0|5
+Sniper|Advanced|10|5|0|10|20|5|5|5|5
+Forest Knight|Advanced|10|5|0|10|10|5|5|5|5
+Dreadnought|Advanced|15|15|-5|-10|5|30|-10|0|5
+Bardinger|Advanced|10|10|-5|0|0|5|10|5|10
+Sentinel|Master|15|15|0|5|5|10|15|5|5
+Orichaldia|Master|15|15|-5|0|5|5|5|5|10
+Battlemaster|Master|25|25|-5|-5|5|10|-5|-5|5
+Shadow Seeker|Master|15|5|0|15|25|0|10|15|0
+Druid|Master|10|-5|30|15|10|-10|20|10|0
+Wiseman|Master|10|-5|20|0|5|-10|25|20|10
+Celestial Trooper|Master|15|5|-5|10|5|5|15|15|10
+Bow Adept|Master|15|5|0|15|20|5|5|5|5
+Castle Knight|Master|25|20|-5|-15|5|30|-10|0|5
+Bau Lord|Master|15|5|0|5|0|10|10|10|5
+Swordmaster|Master|15|10|0|20|15|0|0|5|5
+High Savant|Master|10|15|15|10|5|5|5|5|5
+Bow Knight|Master|10|10|0|15|10|5|0|5|5
+Valkyrium|Master|10|0|15|5|5|5|10|15|10
+Great Knight|Master|20|20|-5|-10|0|15|-10|0|5
+War Monk|Master|15|10|0|15|0|5|15|5|5
+The Blade|Divine|15|10|10|20|20|5|5|5|10
+The Apsara|Divine|15|5|10|25|15|5|5|10|30
+The Eternal|Divine|30|30|0|10|0|15|0|0|0
+The Godhand|Divine|15|10|10|15|5|10|15|5|10
+The Calamity|Divine|15|5|15|25|20|5|15|15|5
+The Trident|Divine|15|15|5|10|10|15|15|5|10
+The Cavalier|Divine|20|15|5|10|10|15|10|5|15
+The Avatar|Divine|10|-5|30|10|5|-5|30|20|10`,['en','tier','hp','str','mag','spd','dex','def','res','lck','cha']);
+const classMount={'Ornius Rider':'飞驼','Light Cavalry':'马',Charioteer:'马','Armored Ornius Rider':'飞驼','Wing Soldier':'天马','Forest Knight':'马','Elephant Rider':'战象',Cataphract:'马',Bardinger:'马',Dragoon:'飞龙',Caladrius:'飞驼',Troubadour:'马','High Savant':'马','Bow Knight':'马',Orichaldia:'飞驼','Great Knight':'马','Celestial Trooper':'天马','Bau Lord':'飞龙',Valkyrium:'马','The Cavalier':'马'};
+const MG=(id,name,type,v,note)=>({id,name,type,note,...Object.fromEntries(S.map(([k])=>[k,v[k]||0]))});const mountGrowth=[MG('wild-horse','野生马','马',{hp:5,spd:5,dex:5,def:5,res:5}),MG('blood-horse','汗血马','马',{hp:5,str:5,dex:5,def:10}),MG('molokelos','莫洛凯洛斯','马',{hp:5,spd:5,dex:5,res:10}),MG('rocinan','Rocinan','马',{hp:5,spd:5,dex:5,def:5,res:5},'Io 专属·羁绊4'),MG('bucephalus','Bucephalus','天马',{str:5,spd:15,res:10},'Alexandria 专属'),MG('wild-pegasus','野生飞马','天马',{},'成长数据尚未确认'),MG('holy-pegasus','圣飞马','天马',{str:5,spd:15,dex:5}),MG('dark-pegasus','暗飞马','天马',{mag:15,spd:10}),MG('ornius','普通欧鲁尼乌斯','飞驼',{spd:10,dex:15}),MG('white-ornius','白羽欧鲁尼乌斯','飞驼',{spd:5,dex:5,res:15}),MG('meganius','普通美加尼乌斯','飞驼',{str:5,dex:5,def:15}),MG('red-meganius','红羽美加尼乌斯','飞驼',{str:15,dex:5,def:5}),MG('black-maginius','黑羽玛吉尼乌斯','飞驼',{mag:10,spd:10,dex:5}),MG('wild-wyvern','野生飞龙','飞龙',{str:10,spd:10,dex:5})];
+let selMount={天马:'holy-pegasus',马:'blood-horse',飞驼:'red-meganius',飞龙:'wild-wyvern'},tierSel=[],typeSel=[],sort='';function applied(c){let type=classMount[c.en];return type&&type!=='战象'?mountGrowth.find(m=>m.id===selMount[type]):null}function cv(c,k){let m=applied(c),mul=c.en==='Charioteer'&&m?.type==='马'?2:1;return c[k]+(m?m[k]*mul:0)}
+function renderMountSelects(){document.getElementById('mount-selects').innerHTML=['天马','马','飞驼','飞龙'].map(type=>`<label><span>${type}</span><select data-mount-type="${type}"><option value="">不加</option>${mountGrowth.filter(m=>m.type===type).map(m=>`<option value="${m.id}" ${selMount[type]===m.id?'selected':''}>${m.name}</option>`).join('')}</select></label>`).join('')}
+function renderClassControls(){document.getElementById('tier-chips').innerHTML=`<button class="chip ${tierSel.length?'':'on'}" data-tier="all">全部</button>`+Object.keys(tiers).map(k=>`<button class="chip ${tierSel.includes(k)?'on':''}" data-tier="${k}">${tiers[k]}</button>`).join('');document.getElementById('mount-type-chips').innerHTML=`<button class="chip blue ${typeSel.length?'':'on'}" data-mtype="all">全部</button>`+['天马','马','飞驼','飞龙','战象'].map(k=>`<button class="chip blue ${typeSel.includes(k)?'on':''}" data-mtype="${k}">${k}</button>`).join('');document.getElementById('class-sort-chips').innerHTML=`<button class="chip ${sort==='total'?'on':''}" data-sort="total">综合</button>`+S.map(([k,l])=>`<button class="chip ${sort===k?'on':''}" data-sort="${k}">${l}</button>`).join('')}
+function renderClasses(){let q=document.getElementById('class-search').value.trim().toLowerCase(),a=cls.filter(c=>(!tierSel.length||tierSel.includes(c.tier))&&(!typeSel.length||typeSel.includes(classMount[c.en]))&&(!q||(zh[c.en]+' '+c.en+' '+(classMount[c.en]||'')).toLowerCase().includes(q)));if(sort)a.sort((x,y)=>(sort==='total'?total(Object.fromEntries(S.map(([k])=>[k,cv(y,k)])))-total(Object.fromEntries(S.map(([k])=>[k,cv(x,k)]))):cv(y,sort)-cv(x,sort))||x.en.localeCompare(y.en));document.getElementById('class-list').innerHTML=a.map((c,i)=>{let m=applied(c),mul=c.en==='Charioteer'&&m?.type==='马'?2:1,vals=Object.fromEntries(S.map(([k])=>[k,cv(c,k)]));return `<article class="card"><div class="cardhead"><div class="names"><strong>${sort==='total'?`<span class="rank">#${i+1}</span>`:''}${zh[c.en]||c.en}</strong><small>${c.en}</small></div><div class="badges"><span class="badge ${sort==='total'?'accent':''}">总 ${total(vals)>=0?'+':''}${total(vals)}</span>${classMount[c.en]?`<span class="badge blue">${m?m.name+(mul===2?' ×2':''):classMount[c.en]}</span>`:''}<span class="badge">${tiers[c.tier]}</span></div></div>${statGrid(vals,sort&&sort!=='total'?[sort]:[])}</article>`}).join('')||'<p class="foot">没有匹配的职业</p>';document.getElementById('class-count').textContent='显示 '+a.length+' / '+cls.length;document.getElementById('class-order').textContent=sort==='total'?'按总成长率排序':sort?'按'+S.find(s=>s[0]===sort)[1]+'排序':'按职业阶层排列';renderClassControls()}
+renderMountSelects();document.getElementById('mount-selects').onchange=e=>{if(e.target.matches('select[data-mount-type]')){selMount[e.target.dataset.mountType]=e.target.value;renderClasses()}};document.getElementById('tier-chips').onclick=e=>{let b=e.target.closest('[data-tier]');if(!b)return;tierSel=b.dataset.tier==='all'?[]:tierSel.includes(b.dataset.tier)?tierSel.filter(x=>x!==b.dataset.tier):tierSel.concat(b.dataset.tier);renderClasses()};document.getElementById('mount-type-chips').onclick=e=>{let b=e.target.closest('[data-mtype]');if(!b)return;typeSel=b.dataset.mtype==='all'?[]:typeSel.includes(b.dataset.mtype)?typeSel.filter(x=>x!==b.dataset.mtype):typeSel.concat(b.dataset.mtype);renderClasses()};document.getElementById('class-sort-chips').onclick=e=>{let b=e.target.closest('[data-sort]');if(b){sort=sort===b.dataset.sort?'':b.dataset.sort;renderClasses()}};document.getElementById('class-search').oninput=renderClasses;renderClasses();
+const mounts=[['野生马','体5 · 速5 · 技5 · 防5 · 抗5','蔬菜','甜'],['汗血马','体5 · 力5 · 技5 · 防10','蔬菜','辣'],['莫洛凯洛斯','体5 · 速5 · 技5 · 抗10','蔬菜','珍味'],['普通欧鲁尼乌斯','速10 · 技15','鱼','甜'],['白羽欧鲁尼乌斯','速5 · 技5 · 抗15','鱼','甜'],['普通美加尼乌斯','力5 · 技5 · 防15','鱼','辣'],['红羽美加尼乌斯','力15 · 技5 · 防5','鱼','辣'],['普通玛吉尼乌斯','未知','鱼','苦'],['黑羽玛吉尼乌斯','魔10 · 速10 · 技5','鱼','苦'],['野生飞马','未知','蔬菜','甜'],['圣飞马','力5 · 速15 · 技5','蔬菜','珍味'],['暗飞马','魔15 · 速10','蔬菜','辣'],['Bucephalus','力5 · 速15 · 抗10','蔬菜','甜','Alexandria 专属'],['野生飞龙','力10 · 速10 · 技5','肉','甜'],['Rocinan','羁绊 4：体5 · 速5 · 技5 · 防5 · 抗5','—','—','Io 专属']];function renderMounts(){let q=document.getElementById('mount-search').value.trim().toLowerCase(),a=mounts.filter(x=>!q||x.join(' ').toLowerCase().includes(q));document.getElementById('mount-body').innerHTML=a.map(x=>`<tr><th>${x[0]}${x[4]?`<small>${x[4]}</small>`:''}</th><td>${x[1]}</td><td>${x[2]}</td><td>${x[3]}</td></tr>`).join('')||'<tr><td colspan="4">没有匹配的坐骑</td></tr>';document.getElementById('mount-count').textContent='显示 '+a.length+' / '+mounts.length}document.getElementById('mount-search').oninput=renderMounts;renderMounts();
+const sources=[['RPG Site 外传总表','九个外传的路线、接取窗口、地点与奖励｜含任务名','https://www.rpgsite.net/guide/21387-fire-emblem-fortunes-weave-paralogues-how-to-access-all-paralogue-battles-where-to-find-them'],['Game8 外传路线表','路线日期与奖励的交叉参考｜页面标注含剧透','https://game8.co/games/fire-emblem-fortunes-weave/archives/624240'],['Game8 角色与职业成长率表','全部角色基础成长率、职业成长修正与成长机制说明','https://game8.co/games/Fire-Emblem-Fortunes-Weave/archives/618974'],['Serenes Forest 坐骑成长帖','羁绊成长、特殊坐骑与技能讨论；社区数据仍在补充','https://forums.serenesforest.net/topic/108370-mounts-give-bonus-stats-and-growth-rates/'],['RPG Site 上手总目录','时间、周常、路线继承与全部专题入口','https://www.rpgsite.net/guide/21407-fire-emblem-fortunes-weave-walkthrough-in-depth-guides-tips-for-getting-startedgetting-started-guide-our-best-tips-as-your-begin-your-playthrough'],['Polygon 23 条新手建议','机制与资源管理，适合开局速读','https://www.polygon.com/fire-emblem-fortunes-weave-beginner-tips-tricks/'],['Polygon 转职表','职业需求、精通技能与解锁条件；仍在更新','https://www.polygon.com/fire-emblem-fortunes-weave-classes-unlock-secret/'],['RPG Site 招募表','完整角色与条件｜含角色剧透','https://www.rpgsite.net/guide/21391-fire-emblem-fortunes-weave-recruitment-guide-all-characters-in-the-game-and-how-to-recruit-them'],['GameSpot 难度说明','Normal / Hard 与 Casual / Classic 差异','https://www.gamespot.com/articles/should-you-play-casual-or-classic-mode-in-fire-emblem-fortunes-weave/']];document.getElementById('source-list').innerHTML=sources.map(x=>`<a class="source" href="${x[2]}" target="_blank" rel="noreferrer"><span><strong>${x[0]}</strong><small>${x[1]}</small></span><i>↗</i></a>`).join('');
+})();
+</script>
+<script>
+/* static-site patch: persist weekly checklist in this browser via localStorage */
+(function(){
+'use strict';
+var KEY='wzhq-weekly-checklist-v1';
+function read(){try{var v=localStorage.getItem(KEY);return v?JSON.parse(v):[]}catch(e){return[]}}
+function write(keys){try{localStorage.setItem(KEY,JSON.stringify(keys))}catch(e){}}
+function current(){var a=[];document.querySelectorAll('#checklist input[data-key]:checked').forEach(function(i){a.push(i.getAttribute('data-key'))});return a}
+var list=document.getElementById('checklist');
+if(!list)return;
+read().forEach(function(k){
+  var input=list.querySelector('input[data-key="'+k+'"]');
+  if(input&&!input.checked){input.checked=true;input.dispatchEvent(new Event('change',{bubbles:true}));}
+});
+list.addEventListener('change',function(){write(current());});
+var reset=document.getElementById('reset-week');
+if(reset)reset.addEventListener('click',function(){write([]);});
+})();
+</script>
+</body>
+</html>
