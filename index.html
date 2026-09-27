@@ -219,7 +219,7 @@ const chars=parseRows(`
 布卡尔|Buccar|50|50|20|25|40|45|20|30|35
 西罗科|Sirocco|40|40|40|45|50|35|35|50|45
 奥林匹亚|Olympia|35|35|50|35|35|30|40|40|40
-穆|Mu|30|30|5|30|30|20|10|10|20
+穆|Mu|50|50|25|50|50|40|30|30|40
 盖茨|Gaitz|50|50|20|40|45|45|25|40|45
 但丁|Dante|30|30|45|40|40|20|40|45|30
 厄休拉|Ursula|40|35|35|50|50|35|30|40|45
@@ -227,7 +227,7 @@ const chars=parseRows(`
 迭戈|Diego|45|40|20|45|60|35|20|35|30
 妮娜|Ninae|45|45|35|35|45|35|45|50|40
 沙兰|Sha Lan|35|30|45|35|50|30|45|35|40
-哪吒|Nezha|45|55|25|45|50|35|25|30|25
+哪吒|Nezha|45|45|25|45|50|35|25|30|25
 古扎岚|Guzran|45|45|20|50|45|35|20|45|30
 伊欧|Io|45|40|25|35|45|40|25|35|35
 卡塔妮娅|Catania|35|35|35|55|50|30|35|40|45
@@ -236,7 +236,7 @@ const chars=parseRows(`
 亚历桑德拉|Alexandra|30|35|35|55|45|30|40|50|50
 杨界|Yang Jie|50|35|40|35|35|30|40|40|25
 诺库图拉|Noctula|50|45|20|45|40|40|20|35|30
-索绯雅|Sofia|35|30|45|40|30|25|40|30|40
+索绯雅|Sofia|35|30|45|30|40|25|40|30|40
 佩佩|Peppe|30|30|25|60|45|30|30|45|30
 赛特斯|Seteth|45|45|30|40|45|40|35|30|50
 洛蕾塔|Loretta|35|35|35|55|40|30|40|30|30
@@ -265,7 +265,7 @@ let charSel=[];function total(o,keys=S.map(x=>x[0])){return keys.reduce((a,k)=>a
 function renderChars(){let q=document.getElementById('char-search').value.trim().toLowerCase(),a=chars.filter(x=>!q||((characterNames[x.en]||x.zh)+' '+x.en).toLowerCase().includes(q));if(charSel.length)a.sort((x,y)=>total(y,charSel)-total(x,charSel)||x.en.localeCompare(y.en));let ranks=new Map(),sorted=[...chars].sort((x,y)=>total(y,charSel)-total(x,charSel)),r=0,last=null;sorted.forEach((x,i)=>{let v=total(x,charSel);if(v!==last)r=i+1;ranks.set(x.en,r);last=v});document.getElementById('char-list').innerHTML=a.map(x=>{let sel=total(x,charSel),all=total(x),mx=Math.max(...S.map(s=>x[s[0]])),strong=S.filter(s=>x[s[0]]===mx).map(s=>s[1]).join('/'),name=characterNames[x.en]||x.zh,src=avatarSrc(x.en);return `<article class="card person-link" role="button" tabindex="0" data-person="${x.en}" data-from="characters" aria-label="查看${name}人物详情"><div class="cardhead"><div class="char-identity">${src?`<div class="avatar-frame char-avatar"><img src="${src}" alt="${name}头像"></div>`:''}<div class="names"><strong>${charSel.length?`<span class="rank">#${ranks.get(x.en)}</span>`:''}${name}</strong><small>${x.en}</small></div></div><div class="badges">${charSel.length?`<span class="badge accent">${charSel.map(k=>S.find(s=>s[0]===k)[1]).join('+')} ${sel}</span>`:`<span class="badge">强项 ${strong}</span>`}<span class="badge">九项 ${all}</span></div></div>${statGrid(x,charSel)}</article>`}).join('')||'<p class="foot">没有匹配的角色</p>';document.getElementById('char-count').textContent='显示 '+a.length+' / '+chars.length;document.getElementById('char-order').textContent=charSel.length?'按 '+charSel.map(k=>S.find(s=>s[0]===k)[1]).join('+')+' 合计排序':'选择属性后显示合计与排名';document.getElementById('char-stat-chips').innerHTML=`<button class="chip ${charSel.length===9?'on':''}" data-stat="all">九项</button>`+S.map(([k,l])=>`<button class="chip ${charSel.includes(k)?'on':''}" data-stat="${k}">${l}</button>`).join('')}
 document.getElementById('char-search').oninput=renderChars;document.getElementById('char-stat-chips').onclick=e=>{let b=e.target.closest('[data-stat]');if(!b)return;if(b.dataset.stat==='all')charSel=charSel.length===9?[]:S.map(x=>x[0]);else charSel=charSel.includes(b.dataset.stat)?charSel.filter(x=>x!==b.dataset.stat):charSel.concat(b.dataset.stat);renderChars()};renderChars();
 const zh={Commoner:'平民',Noble:'贵族',Gladiator:'斗士',Hunter:'猎兵',Soldier:'士兵','Ornius Rider':'飞鸵兵',Diviner:'诅咒师','Armored Knight':'重装步兵',Priest:'牧师','Wing Soldier':'天翼兵',Pugilist:'斗拳手',Brigand:'土匪',Charioteer:'战车兵',Archer:'弓箭手','Light Cavalry':'轻骑兵',Myrmidon:'剑客',Rogue:'恶棍',Shaman:'萨满巫师','Armored Ornius Rider':'骑甲驼兵',Blacksmith:'锻造师',Ranger:'游侠',Cataphract:'重装骑兵',Ovate:'先知',Bishop:'主教',Shido:'侍道',Caladrius:'神鸵兵',Troubadour:'游唱诗人',Dancer:'舞者',Guardian:'卫士','Elephant Rider':'战象兵',Dragoon:'驭龙兵',Warrior:'勇士',Sniper:'狙击手','Forest Knight':'森林骑士',Dreadnought:'巨型重甲兵',Bardinger:'荣光骑士',Sentinel:'圣枪师',Orichaldia:'奥利哈铁骑',Battlemaster:'战斗将领','Shadow Seeker':'探影者','Bow Adept':'宗师射手','Bow Knight':'弓骑士','Castle Knight':'要塞',Swordmaster:'刀剑将领','High Savant':'高阶墓志铭',Valkyrium:'瓦尔基里姆','Great Knight':'英勇骑士','War Monk':'武僧','Celestial Trooper':'圣天翼兵','Bau Lord':'飞龙将领',Druid:'德鲁伊',Wiseman:'贤士','The Blade':'刃辉神将','The Apsara':'神乐神将','The Godhand':'破拳神将','The Calamity':'绝祸神将','The Trident':'岚枪神将','The Cavalier':'烈骏神将','The Avatar':'圣转神将','The Eternal':'永霸神将'};
-const tiers={Base:'基础',Beginner:'初级',Specialty:'中级',Advanced:'上级',Master:'大师',Divine:'神将'};
+const tiers={Base:'基础',Beginner:'初级',Specialty:'中级',Advanced:'上级',Master:'最上级',Divine:'神将'};
 const cls=parseRows(`
 Commoner|Base|0|0|0|0|0|0|0|0|0
 Noble|Base|0|0|0|0|0|0|0|0|0
