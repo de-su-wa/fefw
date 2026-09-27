@@ -509,7 +509,6 @@ function renderSceneCard(scene){return `<article class="card scene-card"><div cl
 function renderMerged(){document.getElementById('route-chips').innerHTML=['Cai','Dietrich','Theodora','Leda'].map(x=>`<button class="chip route-choice ${x===route?'on':''}" data-route="${x}"><span>${routeNames[x]}</span><small>${x}</small></button>`).join('');document.querySelectorAll('#merged-filter [data-filter]').forEach(b=>{const on=b.dataset.filter===sceneFilter;b.classList.toggle('on',on);b.setAttribute('aria-pressed',String(on))});const R=routeChapters[route],seen={};let pTotal=0,sTotal=0;R.chapters.forEach(ch=>{ch.paras.forEach(p=>{const k=p.char+'|'+p.title;if(!seen[k]){seen[k]=1;pTotal++}});sTotal+=ch.scenes.length});document.getElementById('merged-route-label').textContent=R.zh+' '+R.en+' 路线';document.getElementById('merged-count').textContent='外传可完成 '+pTotal+' / 9 · 特殊事件 '+sTotal+' 个';document.getElementById('merged-chapters').innerHTML=R.chapters.map((ch,idx)=>{const n=idx+1;let cards='';if(sceneFilter!=='scene'){cards+=ch.paras.map(renderParaCard).join('')}if(sceneFilter!=='para'){cards+=ch.scenes.map(renderSceneCard).join('')}const note=ch.note?`<p class="merged-chapter-note">${esc(ch.note)}</p>`:'';return `<section class="scene-chapter merged-chapter"><div class="merged-chapter-head"><h3>第 ${n} 章 · ${esc(ch.en)} · ${ch.dates?ch.dates[0]+'/'+ch.dates[1]+'–'+ch.dates[2]+'/'+ch.dates[3]:'纯剧情'}</h3></div>${note}${cards?`<div class="merged-card-list">${cards}</div>`:''}</section>`}).join('')}
 document.getElementById('route-chips').onclick=e=>{const b=e.target.closest('[data-route]');if(!b)return;route=b.dataset.route;renderMerged()};
 document.getElementById('merged-filter').onclick=e=>{const b=e.target.closest('[data-filter]');if(!b)return;sceneFilter=b.dataset.filter;renderMerged()};
-renderMerged();
 const characterNames={
   "Eshmel": "伊修玛尔",
   "Hong Hua": "红花",
@@ -574,6 +573,7 @@ const characterNames={
   "Aswan": "阿斯旺",
   "Tahonia": "塔霍尼亚",
 };
+renderMerged();
 const no="无法挖角",pending="条件尚未公布";
 const all=condition=>({cai:condition,dietrich:condition,theodora:condition,leda:condition});
 const r=(cai,dietrich,theodora,leda)=>({cai,dietrich,theodora,leda});
