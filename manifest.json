@@ -1,0 +1,22 @@
+{
+  "name": "万紫千红速查工具",
+  "short_name": "万紫千红",
+  "description": "火焰之纹章 万紫千红 中文速查工具",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f1e9e0",
+  "theme_color": "#f1e9e0",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
