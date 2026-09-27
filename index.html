@@ -418,24 +418,24 @@ document.addEventListener('click',e=>{let el=e.target.closest('[data-person]');i
 renderPeople();
 
 const mounts=[
-['野生马','体5 · 速5 · 技5 · 防5 · 抗5','蔬菜','甜','',[['共鸣疾驰','Paired Run','【骑兵】移动力+2'],['共鸣激励','Paired Alertness','【骑兵】闪避+10']]],
-['汗血马','体5 · 力5 · 技5 · 防10','蔬菜','辣','',[['共鸣猛战技','Paired Fierce-Arts','【骑兵】用战技攻击时攻击力+4'],['共鸣战技集中','Paired Arts-Focus','【飞行】用战技攻击时命中+15'],['再移动','Canto','【骑兵】战斗后可再移动2格']]],
-['莫洛凯洛斯','体5 · 速5 · 技5 · 抗10','蔬菜','珍味','',[['共鸣奇迹','Paired Miracle','【骑兵】幸运+5'],['共鸣治疗','Paired Healing','【骑兵】战斗后回复自身中量HP']]],
+['野生马','体5 · 速5 · 技5 · 防5 · 抗5','蔬菜','甜','',[['联合疾驰','Paired Run','【骑兵】移动力+2'],['联合激励','Paired Alertness','【骑兵】闪避+10']]],
+['汗血马','体5 · 力5 · 技5 · 防10','蔬菜','辣','',[['联合猛战技','Paired Fierce-Arts','【骑兵】用战技攻击时攻击力+4'],['联合战技集中','Paired Arts-Focus','【飞行】用战技攻击时命中+15'],['再移动','Canto','【骑兵】战斗后可再移动2格']]],
+['莫洛凯洛斯','体5 · 速5 · 技5 · 抗10','蔬菜','珍味','',[['联合奇迹','Paired Miracle','【骑兵】幸运+5'],['联合治疗','Paired Healing','【骑兵】战斗后回复自身中量HP']]],
 ['黑马','体5 · 力5 · 速10 · 技5','蔬菜','苦','',[['再移动','Canto','【骑兵】战斗后可再移动2格']]],
-['普通欧鲁尼乌斯','速10 · 技15','鱼','甜','',[['共鸣隐匿','Paired Stealth','【骑兵】有利地形战斗时回避+10、防御+3'],['共鸣疾驰','Paired Run','【骑兵】移动力+2']]],
-['白羽欧鲁尼乌斯','速5 · 技5 · 抗15','鱼','甜','',[['共鸣治疗','Paired Healing','【骑兵】战斗后回复自身中量HP'],['共鸣净化','Paired Purify','【骑兵】自方回合开始时解除自身中毒']]],
-['普通美加尼乌斯','力5 · 技5 · 防15','鱼','辣','',[['共鸣疾驰','Paired Run','【骑兵】移动力+2'],['共鸣巨躯','Paired Bulk','【骑兵】体格+4']]],
-['红羽美加尼乌斯','力15 · 技5 · 防5','鱼','辣','',[['共鸣防护','Paired Protection','【骑兵】受到必杀一击时伤害降至50%'],['共鸣疾驰','Paired Run','【骑兵】移动力+2']]],
-['普通玛吉尼乌斯','魔15 · 技10','鱼','苦','',[['共鸣疾驰','Paired Run','【骑兵】移动力+2'],['共鸣魔法集中','Paired Magic Focus','【骑兵】装备魔法时命中+15']]],
-['黑羽玛吉尼乌斯','魔10 · 速10 · 技5','鱼','苦','',[['共鸣魔法尖锐','Paired Magic-Sight','【骑兵】装备魔法时必杀+10'],['再移动','Canto','【骑兵】战斗后可再移动2格']]],
-['野生飞马','速15 · 抗10','蔬菜','甜','',[['共鸣对魔','Paired Mage-Kill','【骑兵】敌人使用魔法战斗时攻击力+5'],['共鸣飞翔','Paired Streak','【飞行】移动力+2']]],
+['普通欧鲁尼乌斯','速10 · 技15','鱼','甜','',[['联合隐匿','Paired Stealth','【骑兵】有利地形战斗时回避+10、防御+3'],['联合疾驰','Paired Run','【骑兵】移动力+2']]],
+['白羽欧鲁尼乌斯','速5 · 技5 · 抗15','鱼','甜','',[['联合治疗','Paired Healing','【骑兵】战斗后回复自身中量HP'],['联合净化','Paired Purify','【骑兵】自方回合开始时解除自身中毒']]],
+['普通美加尼乌斯','力5 · 技5 · 防15','鱼','辣','',[['联合疾驰','Paired Run','【骑兵】移动力+2'],['联合巨躯','Paired Bulk','【骑兵】体格+4']]],
+['红羽美加尼乌斯','力15 · 技5 · 防5','鱼','辣','',[['联合防护','Paired Protection','【骑兵】受到必杀一击时伤害降至50%'],['联合疾驰','Paired Run','【骑兵】移动力+2']]],
+['普通玛吉尼乌斯','魔15 · 技10','鱼','苦','',[['联合疾驰','Paired Run','【骑兵】移动力+2'],['联合魔法集中','Paired Magic Focus','【骑兵】装备魔法时命中+15']]],
+['黑羽玛吉尼乌斯','魔10 · 速10 · 技5','鱼','苦','',[['联合魔法尖锐','Paired Magic-Sight','【骑兵】装备魔法时必杀+10'],['再移动','Canto','【骑兵】战斗后可再移动2格']]],
+['野生飞马','速15 · 抗10','蔬菜','甜','',[['联合对魔','Paired Mage-Kill','【骑兵】敌人使用魔法战斗时攻击力+5'],['联合飞翔','Paired Streak','【飞行】移动力+2']]],
 ['圣飞马','力5 · 速15 · 技5','蔬菜','珍味','',[['飞行再移动','Canto','【飞行】战斗后可再移动2格']]],
-['暗飞马','魔15 · 速10','蔬菜','辣','',[['共鸣飞翔','Paired Streak','【飞行】移动力+2']]],
-['布克法拉斯','力5 · 速15 · 抗10','蔬菜','甜','Alexandria 专属',[['共鸣飞翔','Paired Streak','【飞行】移动力+2']]],
-['野生巴乌','力10 · 速5 · 技10','肉','甜','',[['共鸣猛战技','Paired Fierce-Arts','【骑兵】用战技攻击时攻击力+4'],['共鸣飞翔','Paired Streak','【飞行】移动力+2']]],
-['红巴乌','力15 · 技10','肉','辣','',[['共鸣战技集中','Paired Arts-Focus','【飞行】用战技攻击时命中+15'],['共鸣飞翔','Paired Streak','【飞行】移动力+2']]],
-['黑巴乌','力10 · 速15','肉','苦','',[['共鸣坚韧','Paired Resilience','【飞行】受到特效攻击时伤害减半']]],
-['罗西南','体5 · 速5 · 技5 · 防10 · 抗5','蔬菜','甜','Io 专属',[['共鸣疾驰','Paired Run','【骑兵】移动力+2']]]
+['暗飞马','魔15 · 速10','蔬菜','辣','',[['联合飞翔','Paired Streak','【飞行】移动力+2']]],
+['布克法拉斯','力5 · 速15 · 抗10','蔬菜','甜','Alexandria 专属',[['联合飞翔','Paired Streak','【飞行】移动力+2']]],
+['野生巴乌','力10 · 速5 · 技10','肉','甜','',[['联合猛战技','Paired Fierce-Arts','【骑兵】用战技攻击时攻击力+4'],['联合飞翔','Paired Streak','【飞行】移动力+2']]],
+['红巴乌','力15 · 技10','肉','辣','',[['联合战技集中','Paired Arts-Focus','【飞行】用战技攻击时命中+15'],['联合飞翔','Paired Streak','【飞行】移动力+2']]],
+['黑巴乌','力10 · 速15','肉','苦','',[['联合坚韧','Paired Resilience','【飞行】受到特效攻击时伤害减半']]],
+['罗西南','体5 · 速5 · 技5 · 防10 · 抗5','蔬菜','甜','Io 专属',[['联合疾驰','Paired Run','【骑兵】移动力+2']]]
 ];
 function renderMounts(){let q=document.getElementById('mount-search').value.trim().toLowerCase(),a=mounts.filter(x=>{let searchable=[x[0],x[1],x[2],x[3],x[4],...x[5].flatMap(s=>[s[0],s[1],s[2]])].join(' ').toLowerCase();return !q||searchable.includes(q)});document.getElementById('mount-body').innerHTML=a.map(x=>`<tr><th scope="row"><span>${x[0]}</span>${x[4]?`<small>${x[4]}</small>`:''}</th><td><span class="growth-stack" aria-label="${x[1]}">${x[1].split(' · ').map(v=>`<span aria-hidden="true">${v}</span>`).join('')}</span></td><td><div class="mount-skill-list">${x[5].map(s=>`<div class="mount-skill"><span class="mount-skill-head"><span class="skill-name">${s[0]}</span><small class="skill-en">${s[1]}</small></span><span class="skill-effect">${s[2]}</span></div>`).join('')}</div></td><td>${x[2]}</td><td>${x[3]}</td></tr>`).join('')||'<tr><td class="mount-empty" colspan="5">没有匹配的坐骑</td></tr>';document.getElementById('mount-count').textContent='显示 '+a.length+' / '+mounts.length}document.getElementById('mount-search').oninput=renderMounts;renderMounts();
 const sources=[['游民星空角色招募表','60 名角色的四路线加入条件｜来源施工中、持续更新','https://wap.gamersky.com/gl/Content-2211366.html'],['RPG Site 外传总表','九个外传的路线、接取窗口、地点与奖励｜含任务名','https://www.rpgsite.net/guide/21387-fire-emblem-fortunes-weave-paralogues-how-to-access-all-paralogue-battles-where-to-find-them'],['Game8 外传路线表','路线日期与奖励的交叉参考｜页面标注含剧透','https://game8.co/games/fire-emblem-fortunes-weave/archives/624240'],['Game8 角色与职业成长率表','全部角色基础成长率、职业成长修正与成长机制说明','https://game8.co/games/Fire-Emblem-Fortunes-Weave/archives/618974'],['Serenes Forest 坐骑成长帖','羁绊成长、特殊坐骑与技能讨论；社区数据仍在补充','https://forums.serenesforest.net/topic/108370-mounts-give-bonus-stats-and-growth-rates/'],['RPG Site 上手总目录','时间、周常、路线继承与全部专题入口','https://www.rpgsite.net/guide/21407-fire-emblem-fortunes-weave-walkthrough-in-depth-guides-tips-for-getting-startedgetting-started-guide-our-best-tips-as-your-begin-your-playthrough'],['Polygon 23 条新手建议','机制与资源管理，适合开局速读','https://www.polygon.com/fire-emblem-fortunes-weave-beginner-tips-tricks/'],['Polygon 转职表','职业需求、精通技能与解锁条件；仍在更新','https://www.polygon.com/fire-emblem-fortunes-weave-classes-unlock-secret/'],['RPG Site 招募表','完整角色与条件｜含角色剧透','https://www.rpgsite.net/guide/21391-fire-emblem-fortunes-weave-recruitment-guide-all-characters-in-the-game-and-how-to-recruit-them'],['GameSpot 难度说明','Normal / Hard 与 Casual / Classic 差异','https://www.gamespot.com/articles/should-you-play-casual-or-classic-mode-in-fire-emblem-fortunes-weave/']];document.getElementById('source-list').innerHTML=sources.map(x=>`<a class="source" href="${x[2]}" target="_blank" rel="noreferrer"><span><strong>${x[0]}</strong><small>${x[1]}</small></span><i>↗</i></a>`).join('');
