@@ -29,7 +29,7 @@
     <section class="view" id="character-detail" role="tabpanel"><div id="character-detail-content"></div></section>
     <section class="view" id="recruitment" role="tabpanel"><div class="heading"><h1>角色招募</h1></div><p class="recruit-source">来源施工中、持续更新。中文名与条件参考<a href="https://wap.gamersky.com/gl/Content-2211366.html" target="_blank" rel="noreferrer">游民星空《角色加入条件一览》</a>。</p><div class="controls"><div><span class="group-label">选择路线</span><div class="chips routes" id="recruit-route-chips"></div></div><div class="display-row"><span class="group-label">显示模式</span><div class="display-switch" id="recruit-mode" role="group" aria-label="招募卡片显示模式"></div></div><input id="recruit-search" class="search" type="search" placeholder="搜索中文或英文角色名"></div><div class="resultbar"><span id="recruit-label"></span><span id="recruit-count"></span></div><div id="recruit-list"></div></section>
     <section class="view" id="characters" role="tabpanel"><div class="heading"><h1>角色基础成长率</h1></div><div class="growth-jumps" aria-label="其他成长率"><button class="growth-jump" type="button" data-jump="classes"><strong>职业成长</strong><span aria-hidden="true">→</span></button><button class="growth-jump" type="button" data-jump="mounts"><strong>坐骑成长</strong><span aria-hidden="true">→</span></button></div><p class="recruit-source">升级概率（%）；实际值还需叠加职业与坐骑成长。</p><div class="controls"><input id="char-search" class="search" type="search" placeholder="搜索中文或英文角色名"><div><span class="group-label">选择一项或多项属性，按所选合计排序</span><div class="chips" id="char-stat-chips"></div></div></div><div class="resultbar"><span id="char-order">选择属性后显示合计与排名</span><span id="char-count"></span></div><div class="cards" id="char-list"></div><p class="foot">缩写：体 HP · 力 Str · 魔 Mag · 速 Spd · 技 Dex · 防 Def · 抗 Res · 幸 Lck · 魅 Cha。所选合计与排名仅用于比较成长率，不代表角色强度；并列数值使用相同名次。</p></section>
-    <section class="view" id="classes" role="tabpanel"><div class="heading"><h1>职业成长率</h1></div><p class="recruit-source">叠加到角色基础成长；负数会降低对应属性，骑乘职业可选坐骑成长。</p><div class="controls"><input id="class-search" class="search" type="search" placeholder="搜索中文或英文职业名"><div><span class="group-label">职业等级 · 可多选</span><div class="chips" id="tier-chips"></div></div><div class="panel mount-selects" id="mount-selects"></div><p class="micro">凯伊线可配属坐骑提供额外成长，战车兵提供两倍加成</p><div><span class="group-label">坐骑类型 · 可多选</span><div class="chips" id="mount-type-chips"></div></div><div><span class="group-label">选择一项或多项属性，按所选合计排序</span><div class="chips" id="class-sort-chips"></div></div></div><div class="resultbar"><span id="class-order"></span><span id="class-count"></span></div><div class="cards" id="class-list"></div><p class="foot">缩写：体 HP · 力 Str · 魔 Mag · 速 Spd · 技 Dex · 防 Def · 抗 Res · 幸 Lck · 魅 Cha。所选合计在开启「宠物」开关时包含当前坐骑加成；排名始终以完整 59 职业表计算，并列数值使用相同名次。</p></section>
+    <section class="view" id="classes" role="tabpanel"><div class="heading"><h1>职业成长率</h1></div><p class="recruit-source">叠加到角色基础成长；负数会降低对应属性，骑乘职业可选坐骑成长。</p><div class="controls"><input id="class-search" class="search" type="search" placeholder="搜索中文或英文职业名"><div><span class="group-label">职业等级 · 可多选</span><div class="chips" id="tier-chips"></div></div><div class="panel mount-selects" id="mount-selects"></div><p class="micro">凯伊线可配属坐骑提供额外成长，战车兵提供两倍加成</p><div><span class="group-label">坐骑类型 · 可多选</span><div class="chips" id="mount-type-chips"></div></div><div><span class="group-label">选择一项或多项属性，按所选合计排序</span><div class="chips" id="class-sort-chips"></div></div></div><div class="resultbar"><span id="class-order"></span><span id="class-count"></span></div><div class="cards" id="class-list"></div><p class="foot">缩写：体 HP · 力 Str · 魔 Mag · 速 Spd · 技 Dex · 防 Def · 抗 Res · 幸 Lck · 魅 Cha。所选合计在开启「宠物」开关时包含当前坐骑加成；排名始终以完整 60 职业表计算，并列数值使用相同名次。</p></section>
     <section class="view" id="mounts" role="tabpanel"><div class="heading"><h1>坐骑成长与食物</h1></div><p class="recruit-source">成长数字均为百分比；食材用于提高对应动物的出现稳定性。</p><div class="controls"><label class="sr-only" for="mount-search">搜索坐骑</label><input id="mount-search" class="search" type="search" placeholder="搜索坐骑、属性、技能或口味"></div><div class="resultbar"><span>全数据表</span><span id="mount-count"></span></div><div class="panel mount-panel"><table class="mount-table"><caption class="sr-only">坐骑名称、成长加成、骑乘技能、偏好食材与味道的完整数据表</caption><colgroup><col style="width:22%"><col style="width:20%"><col style="width:38%"><col style="width:11%"><col style="width:9%"></colgroup><thead><tr><th scope="col">坐骑</th><th scope="col">成长加成</th><th scope="col">技能</th><th scope="col">食材</th><th scope="col">味道</th></tr></thead><tbody id="mount-body"></tbody></table></div><p class="foot">“—”表示现有资料没有对应食物记录。</p></section>
     <section class="view" id="sources" role="tabpanel"><div class="heading"><h1>攻略资料</h1></div><div class="panel" id="source-list"></div><div class="note warn" style="margin-top:16px"><strong>先看标签再点：</strong>机制指南通常安全；完整招募表与流程攻略可能直接出现角色或章节信息。</div><div class="rules"><div class="heading"><h1>路线节奏</h1></div><div class="panel" style="padding:0 14px"><div class="rule"><b>I</b><div><h3>一条 Part I 打完再开下一条</h3><p>完整打完后，世界地图探索与通用支线完成会带到下一条 Part I；中途切换享受不到这部分继承。</p></div></div><div class="rule"><b>II</b><div><h3>外传看日历窗口</h3><p>外传只在 Part I 出现，共 9 个，并有路线与日期限制。优先处理，避免错过本轮窗口。</p></div></div><div class="rule"><b>III</b><div><h3>角色等级与装备不跨 Part I 路线</h3><p>共通的是地图、通用支线与全档进度；不要把角色养成与物品也当作会自动继承。</p></div></div></div></div></section>
   </main>
@@ -264,14 +264,15 @@ const chars=parseRows(`
 let charSel=[];function total(o,keys=S.map(x=>x[0])){return keys.reduce((a,k)=>a+o[k],0)}function statGrid(o,active=[]){return `<dl class="stats">${S.map(([k,l])=>`<div class="stat ${active.includes(k)?'on':''}"><dt>${l}</dt><dd>${o[k]>0?o[k]:o[k]}</dd></div>`).join('')}</dl>`}
 function renderChars(){let q=document.getElementById('char-search').value.trim().toLowerCase(),a=chars.filter(x=>!q||((characterNames[x.en]||x.zh)+' '+x.en).toLowerCase().includes(q));if(charSel.length)a.sort((x,y)=>total(y,charSel)-total(x,charSel)||x.en.localeCompare(y.en));let ranks=new Map(),sorted=[...chars].sort((x,y)=>total(y,charSel)-total(x,charSel)),r=0,last=null;sorted.forEach((x,i)=>{let v=total(x,charSel);if(v!==last)r=i+1;ranks.set(x.en,r);last=v});document.getElementById('char-list').innerHTML=a.map(x=>{let sel=total(x,charSel),all=total(x),mx=Math.max(...S.map(s=>x[s[0]])),strong=S.filter(s=>x[s[0]]===mx).map(s=>s[1]).join('/'),name=characterNames[x.en]||x.zh,src=avatarSrc(x.en);return `<article class="card person-link" role="button" tabindex="0" data-person="${x.en}" data-from="characters" aria-label="查看${name}人物详情"><div class="cardhead"><div class="char-identity">${src?`<div class="avatar-frame char-avatar"><img src="${src}" alt="${name}头像"></div>`:''}<div class="names"><strong>${charSel.length?`<span class="rank">#${ranks.get(x.en)}</span>`:''}${name}</strong><small>${x.en}</small></div></div><div class="badges">${charSel.length?`<span class="badge accent">${charSel.map(k=>S.find(s=>s[0]===k)[1]).join('+')} ${sel}</span>`:`<span class="badge">强项 ${strong}</span>`}<span class="badge">九项 ${all}</span></div></div>${statGrid(x,charSel)}</article>`}).join('')||'<p class="foot">没有匹配的角色</p>';document.getElementById('char-count').textContent='显示 '+a.length+' / '+chars.length;document.getElementById('char-order').textContent=charSel.length?'按 '+charSel.map(k=>S.find(s=>s[0]===k)[1]).join('+')+' 合计排序':'选择属性后显示合计与排名';document.getElementById('char-stat-chips').innerHTML=`<button class="chip ${charSel.length===9?'on':''}" data-stat="all">九项</button>`+S.map(([k,l])=>`<button class="chip ${charSel.includes(k)?'on':''}" data-stat="${k}">${l}</button>`).join('')}
 document.getElementById('char-search').oninput=renderChars;document.getElementById('char-stat-chips').onclick=e=>{let b=e.target.closest('[data-stat]');if(!b)return;if(b.dataset.stat==='all')charSel=charSel.length===9?[]:S.map(x=>x[0]);else charSel=charSel.includes(b.dataset.stat)?charSel.filter(x=>x!==b.dataset.stat):charSel.concat(b.dataset.stat);renderChars()};renderChars();
-const zh={Commoner:'平民',Gladiator:'鬥士',Hunter:'獵兵',Soldier:'士兵','Ornius Rider':'飛鴕兵',Diviner:'詛咒師','Armored Knight':'重裝步兵',Priest:'牧师','Wing Soldier':'天翼兵',Pugilist:'斗拳手',Brigand:'土匪',Charioteer:'戰車兵',Archer:'弓箭手','Light Cavalry':'轻骑兵',Myrmidon:'剑士',Rogue:'恶棍',Shaman:'萨满','Armored Ornius Rider':'骑甲驼兵',Blacksmith:'锻造师',Ranger:'游侠',Cataphract:'铁甲骑兵',Ovate:'先知',Bishop:'主教',Shido:'侍道',Caladrius:'神驼兵',Troubadour:'游吟诗人',Dancer:'舞者',Guardian:'衛士','Elephant Rider':'戰象兵',Dragoon:'馭龍兵',Warrior:'勇士',Sniper:'狙击手','Forest Knight':'森林骑士',Dreadnought:'巨型重甲兵',Bardinger:'荣光骑士',Sentinel:'哨卫',Orichaldia:'奥利哈尔迪亚',Battlemaster:'战斗大师','Shadow Seeker':'暗影追猎者',Druid:'德鲁伊',Wiseman:'贤者','Celestial Trooper':'天界骑兵','Bow Adept':'弓术大师','Castle Knight':'城堡骑士','Bau Lord':'飞龙领主',Swordmaster:'剑圣','High Savant':'大贤者','Bow Knight':'弓骑士',Valkyrium:'女武神','Great Knight':'鐵甲騎兵','War Monk':'战斗修士','The Blade':'利刃','The Apsara':'飞天女','The Eternal':'永恒者','The Godhand':'神之手','The Calamity':'天灾','The Trident':'三叉戟','The Cavalier':'骑士','The Avatar':'化身'};
+const zh={Commoner:'平民',Noble:'贵族',Gladiator:'斗士',Hunter:'猎兵',Soldier:'士兵','Ornius Rider':'飞鸵兵',Diviner:'诅咒师','Armored Knight':'重装步兵',Priest:'牧师','Wing Soldier':'天翼兵',Pugilist:'斗拳手',Brigand:'土匪',Charioteer:'战车兵',Archer:'弓箭手','Light Cavalry':'轻骑兵',Myrmidon:'剑客',Rogue:'恶棍',Shaman:'萨满巫师','Armored Ornius Rider':'骑甲驼兵',Blacksmith:'锻造师',Ranger:'游侠',Cataphract:'重装骑兵',Ovate:'先知',Bishop:'主教',Shido:'侍道',Caladrius:'神鸵兵',Troubadour:'游唱诗人',Dancer:'舞者',Guardian:'卫士','Elephant Rider':'战象兵',Dragoon:'驭龙兵',Warrior:'勇士',Sniper:'狙击手','Forest Knight':'森林骑士',Dreadnought:'巨型重甲兵',Bardinger:'荣光骑士',Sentinel:'圣枪师',Orichaldia:'奥利哈铁骑',Battlemaster:'战斗将领','Shadow Seeker':'探影者','Bow Adept':'宗师射手','Bow Knight':'弓骑士','Castle Knight':'要塞',Swordmaster:'刀剑将领','High Savant':'高阶墓志铭',Valkyrium:'瓦尔基里姆','Great Knight':'英勇骑士','War Monk':'武僧','Celestial Trooper':'圣天翼兵','Bau Lord':'飞龙将领',Druid:'德鲁伊',Wiseman:'贤士','The Blade':'刃辉神将','The Apsara':'神乐神将','The Godhand':'破拳神将','The Calamity':'绝祸神将','The Trident':'岚枪神将','The Cavalier':'烈骏神将','The Avatar':'圣转神将','The Eternal':'永霸神将'};
 const tiers={Base:'基础',Beginner:'初级',Specialty:'中级',Advanced:'上级',Master:'大师',Divine:'神将'};
 const cls=parseRows(`
 Commoner|Base|0|0|0|0|0|0|0|0|0
+Noble|Base|0|0|0|0|0|0|0|0|0
 Gladiator|Beginner|10|10|0|0|0|0|0|0|0
 Hunter|Beginner|10|0|0|10|10|0|0|0|0
 Soldier|Beginner|10|5|0|-5|5|10|0|0|0
-Ornius Rider|Beginner|10|0|0|10|5|0|5|5|0
+Ornius Rider|Beginner|10|0|0|10|0|0|5|5|0
 Diviner|Beginner|5|-5|15|0|5|-5|10|0|0
 Armored Knight|Specialty|10|10|-5|-5|5|25|-5|0|5
 Priest|Specialty|5|-5|10|5|5|-10|15|15|10
@@ -279,7 +280,7 @@ Wing Soldier|Specialty|10|0|5|0|5|5|5|5|10
 Pugilist|Specialty|15|10|-5|10|5|10|0|0|5
 Brigand|Specialty|15|15|-5|5|0|5|0|0|5
 Charioteer|Specialty|10|5|-5|-5|15|10|0|5|10
-Archer|Specialty|10|5|0|10|10|5|0|5|5
+Archer|Specialty|10|0|0|10|15|5|0|5|5
 Light Cavalry|Specialty|10|5|-5|5|0|5|0|5|10
 Myrmidon|Specialty|10|0|0|15|10|0|0|5|5
 Rogue|Specialty|10|0|0|15|10|0|5|5|0
@@ -289,25 +290,25 @@ Blacksmith|Advanced|15|10|10|0|5|10|10|0|5
 Ranger|Advanced|10|5|0|15|15|0|10|15|0
 Cataphract|Advanced|15|15|-5|-10|0|10|-5|0|5
 Ovate|Advanced|10|-5|20|5|15|-10|15|10|0
-Bishop|Advanced|10|-5|15|0|0|-10|20|20|10
+Bishop|Advanced|10|-5|15|0|5|-10|20|20|10
 Shido|Advanced|10|5|0|15|10|0|-5|5|5
-Caladrius|Advanced|15|0|10|5|10|10|10|5|5
-Troubadour|Advanced|10|0|15|5|0|5|15|15|10
+Caladrius|Advanced|15|0|10|10|5|10|10|5|5
+Troubadour|Advanced|10|0|15|0|5|5|15|15|10
 Dancer|Advanced|15|5|0|25|10|0|5|10|20
 Guardian|Advanced|10|10|0|0|5|10|15|5|5
-Elephant Rider|Advanced|20|10|-5|20|-10|15|-5|5|10
-Dragoon|Advanced|15|5|0|0|5|10|10|10|5
+Elephant Rider|Advanced|20|10|-5|-10|20|15|-5|5|10
+Dragoon|Advanced|15|5|0|5|0|10|10|10|5
 Warrior|Advanced|20|20|-5|0|0|5|-5|0|5
-Sniper|Advanced|10|5|0|10|20|5|5|5|5
+Sniper|Advanced|10|5|0|10|10|5|5|5|5
 Forest Knight|Advanced|10|5|0|10|10|5|5|5|5
 Dreadnought|Advanced|15|15|-5|-10|5|30|-10|0|5
 Bardinger|Advanced|10|10|-5|0|0|5|10|5|10
 Sentinel|Master|15|15|0|5|5|10|15|5|5
-Orichaldia|Master|15|15|-5|0|5|5|5|5|10
-Battlemaster|Master|25|25|-5|-5|5|10|-5|-5|5
-Shadow Seeker|Master|15|5|0|15|25|0|10|15|0
-Druid|Master|10|-5|30|15|10|-10|20|10|0
-Wiseman|Master|10|-5|20|0|5|-10|25|20|10
+Orichaldia|Master|15|15|-5|5|0|5|5|5|10
+Battlemaster|Master|25|25|-5|5|-5|10|-5|-5|5
+Shadow Seeker|Master|15|5|0|25|15|0|10|15|0
+Druid|Master|10|-5|30|10|15|-10|20|10|0
+Wiseman|Master|10|-5|20|5|0|-10|25|20|10
 Celestial Trooper|Master|15|5|-5|10|5|5|15|15|10
 Bow Adept|Master|15|5|0|15|20|5|5|5|5
 Castle Knight|Master|25|20|-5|-15|5|30|-10|0|5
@@ -320,7 +321,7 @@ Great Knight|Master|20|20|-5|-10|0|15|-10|0|5
 War Monk|Master|15|10|0|15|0|5|15|5|5
 The Blade|Divine|15|10|10|20|20|5|5|5|10
 The Apsara|Divine|15|5|10|25|15|5|5|10|30
-The Eternal|Divine|30|30|0|10|0|15|0|0|0
+The Eternal|Divine|30|30|0|10|0|15|0|0|10
 The Godhand|Divine|15|10|10|15|5|10|15|5|10
 The Calamity|Divine|15|5|15|25|20|5|15|15|5
 The Trident|Divine|15|15|5|10|10|15|15|5|10
