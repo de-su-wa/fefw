@@ -27,7 +27,7 @@
   </nav>
   <main>
     <section class="view active" id="weekly" role="tabpanel">
-      <div class="lead"><div><h1>本周清单</h1><p>多数不耗 Turn，回城顺手完成。</p></div><div class="ring" id="weekly-ring"><span id="weekly-count">0/6</span></div></div>
+      <div class="lead"><div><h1>本周清单</h1><p>多数不耗 Turn，回城顺手完成。</p></div><div class="ring" id="weekly-ring"><span id="weekly-count">0/8</span></div></div>
       <div class="panel" id="checklist"></div><button class="reset" id="reset-week">重置本周</button>
     </section>
     <section class="view" id="paralogues" role="tabpanel"><div class="heading"><h1>外传参考</h1></div><p class="recruit-source"><strong>先接外传再安排自由行动。</strong> 单路线无法完成全部 9 个；日期以游戏内任务页为准。</p><div class="controls"><div><span class="group-label">当前路线</span><div class="chips routes" id="route-chips"></div></div></div><div class="resultbar"><span id="route-label"></span><span id="para-count"></span></div><div id="para-list"></div><p class="foot">窗口资料以 RPG Site 与 Game8 的路线表交叉整理；“期限”是最晚完成日。接近截止日时以游戏内任务页为准。</p></section>
@@ -45,7 +45,7 @@
 'use strict';
 const S=[['hp','体'],['str','力'],['mag','魔'],['spd','速'],['dex','技'],['def','防'],['res','抗'],['lck','幸'],['cha','魅']];
 const themeButton=document.getElementById('theme-toggle');let darkTheme=matchMedia('(prefers-color-scheme:dark)').matches;function applyTheme(){document.documentElement.dataset.theme=darkTheme?'dark':'light';themeButton.setAttribute('aria-pressed',String(darkTheme));themeButton.setAttribute('aria-label',darkTheme?'切换浅色模式':'切换深色模式');themeButton.title=darkTheme?'切换浅色模式':'切换深色模式'}themeButton.onclick=()=>{darkTheme=!darkTheme;applyTheme()};applyTheme();
-const checklist=[['calendar','先看日历','竞技场观赛、菜品、演出、生日都在这里'],['arena','竞技场训练','提升技能 EXP，转职考试最实用'],['shrine','神殿服务','提升 Bless Level，解锁祝福'],['meal','用餐与送礼','用餐提升支援；礼物优先给准备招募的角色'],['raven','喂白鸦','提升全队与 Eshmel 的支援'],['stable','马厩喂马','仅 Cai 路线可用','Cai']];
+const checklist=[['calendar','先看日历','竞技场观赛、菜品、演出、生日都在这里'],['arena','竞技场训练','提升技能 EXP，转职考试最实用'],['shrine','神殿服务','提升 Bless Level，解锁祝福'],['meal','用餐与送礼','用餐提升支援；礼物优先给准备招募的角色'],['raven','喂白鸦','提升全队与 Eshmel 的支援'],['stable','马厩喂马','仅 Cai 路线可用','Cai'],['theater','剧场',''],['bathhouse','公共浴场','']];
 const checked=new Set(); // 当前打开期间的临时状态；静态页不写入持久存储
 function renderChecklist(){let el=document.getElementById('checklist');el.innerHTML=checklist.map(x=>`<label class="check-row" data-key="${x[0]}"><input id="weekly-${x[0]}" data-key="${x[0]}" type="checkbox" ${checked.has(x[0])?'checked':''}><span class="box"></span><span class="check-copy"><strong>${x[1]} ${x[3]?`<span class="tag">${x[3]}</span>`:''}</strong><small>${x[2]}</small></span></label>`).join('');let n=checked.size;document.getElementById('weekly-count').textContent=n+'/'+checklist.length;document.getElementById('weekly-ring').style.setProperty('--p',Math.round(n/checklist.length*100));}
 document.getElementById('checklist').addEventListener('change',e=>{if(e.target.matches('input[data-key]')){e.target.checked?checked.add(e.target.dataset.key):checked.delete(e.target.dataset.key);renderChecklist();}});document.getElementById('reset-week').onclick=()=>{checked.clear();renderChecklist()};renderChecklist();
