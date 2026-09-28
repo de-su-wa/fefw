@@ -227,7 +227,7 @@ info: I("5", "--", "--", "--", "--", "--", "--", "--", "1～3"),
 learns: [
 { kind: "level", req: "LV45", chars: ["红花"]},
 { kind: "skill", req: "黑魔术C", chars: ["哪吒","大刀"]},
-{ kind: "special", req: "初始自带", chars: ["爱娜特莉亚"], red: false},
+{ kind: "special", req: "初始自带", chars: ["爱娜特莉亚","沙兰"], red: false},
 ],
 },
 {
@@ -452,6 +452,7 @@ learns: [
 ],
 },
 ];
+
 
 function magicSub(m){return m.sub||"其他"}
 function magicSub(m){return m.sub||"其他"}
@@ -782,7 +783,7 @@ The Calamity|Divine|15|5|15|25|20|5|15|15|5
 The Trident|Divine|15|15|5|10|10|15|15|5|10
 The Cavalier|Divine|20|15|5|10|10|15|10|5|15
 The Avatar|Divine|10|-5|30|10|5|-5|30|20|10`,['en','tier','hp','str','mag','spd','dex','def','res','lck','cha']);
-const classMount={'Ornius Rider':'飞驼','Light Cavalry':'马',Charioteer:'马','Charioteer (Advanced)':'马','Armored Ornius Rider':'飞驼','Wing Soldier':'天马','Forest Knight':'马','Elephant Rider':'战象',Cataphract:'马',Bardinger:'马',Dragoon:'飞龙',Caladrius:'飞驼',Troubadour:'马','High Savant':'马','Bow Knight':'马',Orichaldia:'飞驼','Great Knight':'马','Celestial Trooper':'天马','Bau Lord':'飞龙',Valkyrium:'马','The Cavalier':'马'};
+const classMount={'Ornius Rider':'飞驼','Light Cavalry':'马',Charioteer:'马','Charioteer (Advanced)':'马','Armored Ornius Rider':'飞驼','Wing Soldier':'天马','Forest Knight':'马','Elephant Rider':'战象',Cataphract:'马',Bardinger:'马',Dragoon:'飞龙',Caladrius:'飞驼',Troubadour:'马','Bow Knight':'马',Orichaldia:'飞驼','Great Knight':'马','Celestial Trooper':'天马','Bau Lord':'飞龙',Valkyrium:'马','The Cavalier':'马'};
 const masteryFx={'Commoner':"战斗的基本||命中·回避+3。",'Noble':"战斗的基本||命中·回避+3。",'Gladiator':"攻击的基本||力量+1。",'Hunter':"狩猎的基本||技巧·速度+1。",'Soldier':"防卫的基本||防守+1。",'Ornius Rider':"攻势的基本||力量·魔力+1。",'Diviner':"魔道的基本||魔力·魔防+1。",'Armored Knight':"大反击||若战斗时为后攻，攻击力+3。",'Priest':"信仰心||幸运+3。",'Wing Soldier':"天马的护翼||魔防+3。",'Pugilist':"攻击&远离||使用战技战斗时，回避+10。",'Brigand':"重整态势||在攻击被回避的战斗中，自己的回避 +20。",'Charioteer':"突击态势||使用“突进”时，耐物 +10。（持续到自己的下一个行动阶段）",'Charioteer (Advanced)':"突击态势||使用“突进”时，耐物 +10。（持续到自己的下一个行动阶段）",'Archer':"状态不错||打倒敌人时，命中+3（上限为+30）。 （持续到战斗地图结束）",'Light Cavalry':"体力强化||HP+3。",'Myrmidon':"技巧精湛||使出必杀的一击时，给予的伤害+6。",'Rogue':"暗影隐身||击倒敌人时，回避 +10。（战斗1次后复原）",'Shaman':"技巧咒缚||邻接的敌人技巧-3。",'Armored Ornius Rider':"威胁察觉||战斗时，若敌人的攻击对自己有效或克制自己(特效），回避 +20。",'Blacksmith':"当场修理||使用战技战斗时，有10%几率发动，武器的耐久不会减少。",'Ranger':"反击射击||装备弓时，战斗中 50% 概率发动，可对相邻敌人进行反击",'Cataphract':"大盾||受到物理攻击时，以 20% 的概率发动，将所受伤害减半",'Ovate':"速度咒缚||邻接的敌人的速度−3。",'Bishop':"结界||邻接的我方的魔防+3。",'Shido':"残心||以必杀的一击打倒敌人时，小幅回复自己的HP。",'Caladrius':"驰骋||击倒敌人时，移动力+1（最大+3，持续到下一回合结束为止）",'Troubadour':"勇气的咒歌||1~2范围内的同伴技巧、速度+2（直到自己的下一个行动阶段为止）",'Dancer':"特别舞蹈||对同伴使用「跳舞」时，该同伴的技巧、速度+3",'Guardian':"绷紧神经||打倒敌人时，耐物+3。（持续到自己的下一个行动阶段）",'Elephant Rider':"战象旗手||【骑兵】若自己为“战象兵”，命中+10。",'Dragoon':"突破围城||战斗时，若敌人位于有利地形，则命中+20",'Warrior':"熟练之技||使用战技攻击时，命中+10。",'Sniper':"射击专家||装备弓时，命中+15。",'Forest Knight':"猎人之眼||装备弓追击时，攻击力+3。",'Dreadnought':"集中反击||若战斗时为后攻，命中+10。",'Bardinger':"圣盾||受到魔法攻击时，有20%几率发动。受到的伤害减半。",'Sentinel':"不退架势||战斗时，若自己的HP为最大值，防御力+5。",'Orichaldia':"骑士烈枪（战技）||本次战斗中不会受到追击。",'Battlemaster':"战鬼一击（战技）||给予的伤害变为1.5倍。",'Shadow Seeker':"落影之刃（战技）||若敌人处于有利地形，无视该地形的影响。",'Bow Adept':"飞空猎手（战技）||若敌人为飞行，命中+50。",'Bow Knight':"猎人十字||高命中，高必杀。",'Castle Knight':"阻绝||受到攻击时，受到的伤害减少5。",'Swordmaster':"流星（战技）||连续攻击 5 次（每次伤害为 50%）",'High Savant':"暗月||攻击时，以 10% 的概率发动，使敌人的防御力减半。",'Valkyrium':"静心之咒歌||",'Great Knight':"猛盾||先攻的战斗中，以 50% 的概率发动，该场战斗中受到的攻击伤害减半。",'War Monk':"强打&治愈（战技）||战斗后，可使用辅助魔法。",'Celestial Trooper':"迅雷风烈||若战斗时为先攻，且自己的攻速比敌人高10以上，可在敌人反击前进行追击。",'Bau Lord':"袭击||自己处于不可步行的地形时，攻击力+4。",'Druid':"魔防咒缚||邻接的敌人魔防-3。",'Wiseman':"魔力掌握||战斗时，若敌人装备魔法，有10%几率发动。不会受到反击。",'The Blade':"战神||速度+10。",'The Apsara':"神舞||魅力+10。",'The Godhand':"神装||魔防+10。",'The Calamity':"神命||幸运+10。",'The Trident':"神壁||防守+10。",'The Cavalier':"神技||技巧+10。",'The Avatar':"神法||魔力+10。",'The Eternal':"武神||力量+10。"};
 const classSkills={
 "Commoner":["剑","枪","斧","弓","拳","黑魔法","白魔法","步兵"], // 平民
