@@ -145,7 +145,7 @@ learns: [
 name: "雷暴", type: "黑/攻击魔法", sub: "雷魔法", desc: "用雷电风暴攻击远处的高等魔法。(不可追击)",
 info: I("1", "", "", "", "", "", "", "", "3～10"),
 learns: [
-{ kind: "skill", req: "黑魔术S", chars: ["丹提","红花"]},
+{ kind: "skill", req: "黑魔术S", chars: ["丹提","红花","奥琳琵娅"]},
 ],
 },
 {
@@ -313,9 +313,8 @@ learns: [
 name: "远程圣疗", type: "白/辅助魔法", sub: "治疗", desc: "能治愈很远处我方伤口的神圣魔法。回复远处我方的HP。",
 info: I("5", "8", "--", "--", "--", "--", "--", "--", "1~10"),
 learns: [
-{ kind: "skill", req: "白魔术C", chars: ["媞雅拉"]},
+{ kind: "skill", req: "白魔术C", chars: ["媞雅拉","特洛伊亚"]},
 { kind: "skill", req: "白魔术B", chars: ["赛奥朵拉","莉利安","奥琳琵娅","妮涅","卡塔妮雅","杨界","索绯雅"]},
-{ kind: "skill", req: "白魔术A+", chars: ["特洛伊亚"]},
 ],
 },
 {
@@ -453,6 +452,7 @@ learns: [
 ],
 },
 ];
+
 function magicSub(m){return m.sub||"其他"}
 function magicSub(m){return m.sub||"其他"}
 const S=[['hp','体'],['str','力'],['mag','魔'],['spd','速'],['dex','技'],['def','防'],['res','抗'],['lck','幸'],['cha','魅']];
