@@ -96,12 +96,12 @@
 <div class="hd"><h2>沙漠地图攻略</h2></div>
 <p class="muted" style="margin:0 0 12px">尼西亚德斯沙漠（Nysiades Desert）位于达格达世界地图西侧的大沙漠区域。路线图由 RPG Site 整理，可提前规划路线，避免浪费宝贵的行动回合。</p>
 <div class="card" style="overflow:hidden;padding:0">
-<img src="assets/desert/desert-diagram.png" alt="尼西亚德斯沙漠路线图" style="width:100%;display:block" loading="lazy">
-<p class="muted" style="padding:8px 16px;font-size:12px">沙漠路线示意图</p>
+<button type="button" data-zoom="assets/desert/desert-diagram.png" aria-label="放大查看沙漠路线图" style="display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in"><img src="assets/desert/desert-diagram.png" alt="尼西亚德斯沙漠路线图" style="width:100%;display:block;pointer-events:none" loading="lazy"></button>
+<p class="muted" style="padding:8px 16px;font-size:12px">沙漠路线示意图（点击放大）</p>
 </div>
 <div class="card" style="overflow:hidden;padding:0;margin-top:12px">
-<img src="assets/desert/desert-reference.png" alt="尼西亚德斯沙漠实景参照图" style="width:100%;display:block" loading="lazy">
-<p class="muted" style="padding:8px 16px;font-size:12px">沙漠实景参照图（Part I 完全探索后）</p>
+<button type="button" data-zoom="assets/desert/desert-reference.png" aria-label="放大查看沙漠实景参照图" style="display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in"><img src="assets/desert/desert-reference.png" alt="尼西亚德斯沙漠实景参照图" style="width:100%;display:block;pointer-events:none" loading="lazy"></button>
+<p class="muted" style="padding:8px 16px;font-size:12px">沙漠实景参照图（Part I 完全探索后，点击放大）</p>
 </div>
 <div class="hd" style="margin-top:20px"><h2>路线说明</h2></div>
 <div class="card">
@@ -118,6 +118,31 @@
 </a>
 </div>
 </section>
+<div id="desert-zoom" hidden style="position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.9);padding:8px" role="dialog" aria-modal="true" aria-label="放大的沙漠地图">
+<button type="button" id="desert-zoom-close" aria-label="关闭" style="position:absolute;right:12px;top:12px;z-index:1;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.2);color:#fff;font-size:20px;cursor:pointer">✕</button>
+<div id="desert-zoom-scroll" style="max-height:100%;width:100%;overflow:auto;touch-action:pinch-zoom">
+<img id="desert-zoom-img" src="" alt="放大的沙漠地图" style="display:block;margin:0 auto;width:150%;max-width:150%">
+</div>
+<p style="position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:12px;color:rgba(255,255,255,.7);margin:0">双指缩放查看细节，点击空白处关闭</p>
+</div>
+<script>
+(function(){
+var overlay=document.getElementById('desert-zoom');
+var img=document.getElementById('desert-zoom-img');
+if(!overlay||!img)return;
+document.querySelectorAll('[data-zoom]').forEach(function(btn){
+btn.addEventListener('click',function(){
+img.src=btn.getAttribute('data-zoom');
+overlay.hidden=false;
+overlay.style.display='flex';
+document.body.style.overflow='hidden';
+});
+});
+function close(){overlay.hidden=true;overlay.style.display='none';document.body.style.overflow='';}
+document.getElementById('desert-zoom-close').addEventListener('click',function(e){e.stopPropagation();close();});
+overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+})();
+</script>
   </main>
 </div>
 <script src="assets/vendor/leaflet.js"></script>
