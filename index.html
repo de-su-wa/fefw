@@ -41,7 +41,7 @@
 <div class="more-wrap"><button class="tab" id="more-toggle" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-controls="more-menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1" fill="currentColor" stroke="none"/></svg><span>更多</span></button>
 <div class="more-menu" id="more-menu" role="menu" aria-label="更多选项" hidden>
 <button class="more-action" type="button" role="menuitem" data-more-view="items"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5.5h14v13H5z"/><path d="M8 9h8M8 12.5h8M8 16h5"/></svg><span>物品一览</span></button>
-<button class="more-action" type="button" role="menuitem" data-more-view="sources"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="7.5" width="13" height="12" rx="2"/><path d="M8 7.5V6a1.5 1.5 0 0 1 1.5-1.5H17"/><path d="M9 12h6M9 15.5h6"/></svg><span>资料</span></button>
+<button class="more-action" type="button" role="menuitem" data-more-view="sources"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="7.5" width="13" height="12" rx="2"/><path d="M8 7.5V6a1.5 1.5 0 0 1 1.5-1.5H17"/><path d="M9 12h6M9 15.5h6"/></svg><span>资料</span></button><button class="more-action" type="button" role="menuitem" data-more-view="desert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="7.5" width="13" height="12" rx="2"/><path d="M8 7.5V6a1.5 1.5 0 0 1 1.5-1.5H17"/><path d="M9 12h6M9 15.5h6"/></svg><span>沙漠地图</span></button>
 <button class="theme-toggle" id="theme-toggle" type="button" role="menuitem" aria-pressed="false" aria-label="切换深色模式"><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.1A8.4 8.4 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" fill="none" stroke-width="2" stroke-linecap="round"/></svg><span>切换主题</span></button>
 </div>
 </div>
@@ -92,6 +92,32 @@
 <p class="item-result" id="item-result"></p><div class="item-grid" id="item-grid"></div><button class="item-more" id="item-more" type="button" hidden>显示更多</button>
 </section>
 <section class="view" id="sources" role="tabpanel"><div class="heading"><h1>攻略资料</h1></div><div class="panel" id="source-list"></div><div class="note warn" style="margin-top:16px"><strong>先看标签再点：</strong>机制指南通常安全；完整招募表与流程攻略可能直接出现角色或章节信息。</div><div class="rules"><div class="heading"><h1>路线节奏</h1></div><div class="panel" style="padding:0 14px"><div class="rule"><b>I</b><div><h3>一条 Part I 打完再开下一条</h3><p>完整打完后，世界地图探索与通用支线完成会带到下一条 Part I；中途切换享受不到这部分继承。</p></div></div><div class="rule"><b>II</b><div><h3>外传看日历窗口</h3><p>外传只在 Part I 出现，共 9 个，并有路线与日期限制。优先处理，避免错过本轮窗口。</p></div></div><div class="rule"><b>III</b><div><h3>角色等级与装备不跨 Part I 路线</h3><p>共通的是地图、通用支线与全档进度；不要把角色养成与物品也当作会自动继承。</p></div></div></div></div></section>
+<section class="view" id="desert" role="tabpanel" hidden>
+<div class="hd"><h2>沙漠地图攻略</h2></div>
+<p class="muted" style="margin:0 0 12px">尼西亚德斯沙漠（Nysiades Desert）位于达格达世界地图西侧的大沙漠区域。路线图由 RPG Site 整理，可提前规划路线，避免浪费宝贵的行动回合。</p>
+<div class="card" style="overflow:hidden;padding:0">
+<img src="assets/desert/desert-diagram.png" alt="尼西亚德斯沙漠路线图" style="width:100%;display:block" loading="lazy">
+<p class="muted" style="padding:8px 16px;font-size:12px">沙漠路线示意图</p>
+</div>
+<div class="card" style="overflow:hidden;padding:0;margin-top:12px">
+<img src="assets/desert/desert-reference.png" alt="尼西亚德斯沙漠实景参照图" style="width:100%;display:block" loading="lazy">
+<p class="muted" style="padding:8px 16px;font-size:12px">沙漠实景参照图（Part I 完全探索后）</p>
+</div>
+<div class="hd" style="margin-top:20px"><h2>路线说明</h2></div>
+<div class="card">
+<div class="rule"><span class="n">一</span><div><b>凯伊线 Part I 无法进入</b><p>凯伊的世界地图行动范围受限，Part I 无法探索沙漠（仅迪托利希、赛奥朵拉、蕾达线可进入）。Part III 后开放。</p></div></div>
+<div class="rule"><span class="n">二</span><div><b>红色路径：临时单向慢速</b><p>红色路径走过后会消失，只能按箭头方向单向通行。速度明显慢于其他路线，一次只能走 1–2 个节点（通常为 3 个）。探索前请预留充足时间，不必一次走完。</p></div></div>
+<div class="rule"><span class="n">三</span><div><b>黑色路径：永久通道</b><p>东侧在格尔贝亚关残迹与索尔特北关之间的黑色垂直路径为永久通道。首次穿越沙漠的起点，一般从塔尔伯斯北道或塔尔伯斯南道出发。</p></div></div>
+<div class="rule"><span class="n">四</span><div><b>绿色路径：拜纳绿洲捷径</b><p>绿色垂直路径是捷径：先沿红色路径由东向西艰难抵达拜纳绿洲后出现。之后重访绿洲可走捷径，不必再绕慢速沙漠路。</p></div></div>
+<div class="rule"><span class="n">五</span><div><b>东部通道（** 标记）</b><p>图中 ** 标记的迷宫为东部通道（Eastern Passage）。Part I 内无敌人、无宝箱；Part III 再来时会出现隐藏迷宫「沙之宫殿」。</p></div></div>
+</div>
+<div class="card" style="margin-top:12px">
+<a href="https://www.rpgsite.net/guide/21396-fire-emblem-fortunes-weave-nysiades-desert-map" target="_blank" rel="noreferrer" style="display:flex;align-items:center;gap:12px;text-decoration:none">
+<span style="flex:1"><b>RPG Site 原文</b><br><span class="muted" style="font-size:12px">Fire Emblem: Fortune's Weave - Nysiades Desert Map</span></span>
+<span style="color:var(--blue)">↗</span>
+</a>
+</div>
+</section>
   </main>
 </div>
 <script src="assets/vendor/leaflet.js"></script>
