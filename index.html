@@ -557,7 +557,7 @@ function renderChecklist(){let el=document.getElementById('checklist');el.innerH
 document.getElementById('checklist').addEventListener('change',e=>{if(e.target.matches('input[data-key]')){e.target.checked?checked.add(e.target.dataset.key):checked.delete(e.target.dataset.key);renderChecklist();}});document.getElementById('reset-week').onclick=()=>{checked.clear();renderChecklist()};renderChecklist();
 const bathhouseBlessings=[
   {bath:'温热之泉',blessings:['追击效能','战技效能','吸收效能','视野效能','必杀效能','大胆无畏效能','力量效能']},
-  {bath:'黄金之泉',blessings:['追击效能','超活性效能']},
+  {bath:'黄金之泉',blessings:['追击效能','超活性效能','回避效能']},
   {bath:'芳花之泉',blessings:['静心效能','魔力效能','魔防效能','生命力效能','回复力效能','魔轻量效能','伤愈效能','魔封耐性效能']},
   {bath:'爽快之泉',blessings:['技巧效能','命中效能','回避效能','速度效能','移动效能','不动耐性效能','战技尖锐效能','怒发冲天效能']},
   {bath:'红玉之泉',blessings:['技巧效能','防守效能','力量效能','战技效能','魔防效能']},
