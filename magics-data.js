@@ -135,10 +135,11 @@ learns: [
 },
 {
 name: "彷徨之壁", type: "黑/辅助魔法", sub: "昆仑魔法", desc: "在任意位置创造出晶柱。",
-info: I("5", "--", "--", "--", "--", "--", "--", "--", "1～3"),
+info: I("5", "--", "--", "--", "--", "--", "--", "--", "1"),
 learns: [
 { kind: "level", req: "LV45", chars: ["红花"]},
-{ kind: "skill", req: "黑魔术C", chars: ["哪吒","大刀"]},
+{ kind: "skill", req: "黑魔术D", chars: ["哪吒"]},
+{ kind: "skill", req: "黑魔术C", chars: ["大刀"]},
 { kind: "special", req: "初始自带", chars: ["爱娜特莉亚","沙兰"], red: false},
 ],
 },
